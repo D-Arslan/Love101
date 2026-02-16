@@ -57,10 +57,10 @@ export async function generateMetadata({
   const template = getTemplate(card.template_type as TemplateType)
 
   return {
-    title: `${template.emoji} Un message pour ${card.recipient_name}`,
+    title: `${template.name} — Un message pour ${card.recipient_name}`,
     description: `${card.sender_name} t'a envoyé un message spécial via Love101.`,
     openGraph: {
-      title: `${template.emoji} Un message pour ${card.recipient_name}`,
+      title: `${template.name} — Un message pour ${card.recipient_name}`,
       description: `${card.sender_name} t'a envoyé un message spécial.`,
       type: "website",
     },

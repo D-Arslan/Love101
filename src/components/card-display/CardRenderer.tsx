@@ -4,6 +4,7 @@ import { useState } from "react"
 import { motion } from "framer-motion"
 import { Heart } from "lucide-react"
 import { getTemplate } from "@/templates"
+import { TemplateIcon } from "@/components/shared/TemplateIcon"
 import type { Card } from "@/lib/types/database"
 import { Envelope } from "./Envelope"
 import { Countdown } from "./Countdown"
@@ -37,7 +38,7 @@ export function CardRenderer({ card }: CardRendererProps) {
       <Envelope
         colors={colors}
         recipientName={card.recipient_name}
-        emoji={template.emoji}
+        templateType={card.template_type}
         onOpen={() => setEnvelopeOpened(true)}
       />
     )
@@ -69,14 +70,14 @@ export function CardRenderer({ card }: CardRendererProps) {
               }}
             />
 
-            {/* Emoji */}
+            {/* Template icon */}
             <motion.div
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.3, type: "spring", stiffness: 200 }}
-              className="text-6xl mb-6"
+              className="mb-6 flex justify-center"
             >
-              {template.emoji}
+              <TemplateIcon type={card.template_type} size="xl" />
             </motion.div>
 
             {/* Recipient */}
@@ -228,7 +229,7 @@ export function CardRenderer({ card }: CardRendererProps) {
           className="text-center pt-4"
         >
           <span className="text-xs" style={{ color: colors.text, opacity: 0.4 }}>
-            {template.emoji} {template.name} — Love101
+            {template.name} — Love101
           </span>
         </motion.div>
       </div>

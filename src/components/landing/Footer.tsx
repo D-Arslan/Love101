@@ -1,11 +1,13 @@
 import { Heart } from "lucide-react"
+import { Logo } from "@/components/shared/Logo"
 
 export function Footer() {
   return (
-    <footer className="bg-gray-50 border-t border-gray-100">
-      <div className="max-w-5xl mx-auto px-6 py-10 text-center">
+    <footer className="bg-gray-50 border-t border-gray-100 relative">
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent" />
+      <div className="max-w-5xl mx-auto px-6 py-12 text-center">
         <div className="flex items-center justify-center gap-2 mb-3">
-          <span className="text-xl">💌</span>
+          <Logo size="sm" />
           <span className="font-serif text-xl font-bold text-gray-900">
             Love101
           </span>

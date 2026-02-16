@@ -9,7 +9,8 @@ import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Loader2, LogIn, Mail } from "lucide-react"
+import { Loader2, LogIn } from "lucide-react"
+import { Logo } from "@/components/shared/Logo"
 import { Separator } from "@/components/ui/separator"
 
 export function LoginForm() {
@@ -59,12 +60,14 @@ export function LoginForm() {
   return (
     <div className="w-full max-w-sm space-y-6">
       <div className="text-center">
-        <span className="text-4xl block mb-3">💌</span>
+        <div className="flex justify-center mb-1">
+          <Logo size="lg" />
+        </div>
         <h1 className="font-serif text-2xl font-bold text-gray-900">Connexion</h1>
         <p className="text-sm text-gray-500 mt-1">Connecte-toi pour gerer tes messages</p>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 space-y-4">
         <Button
           type="button"
           variant="outline"

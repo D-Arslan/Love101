@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Loader2, UserPlus } from "lucide-react"
+import { Logo } from "@/components/shared/Logo"
 import { Separator } from "@/components/ui/separator"
 
 export function SignupForm() {
@@ -62,12 +63,14 @@ export function SignupForm() {
   return (
     <div className="w-full max-w-sm space-y-6">
       <div className="text-center">
-        <span className="text-4xl block mb-3">💌</span>
+        <div className="flex justify-center mb-1">
+          <Logo size="lg" />
+        </div>
         <h1 className="font-serif text-2xl font-bold text-gray-900">Creer un compte</h1>
         <p className="text-sm text-gray-500 mt-1">Inscris-toi pour sauvegarder tes messages</p>
       </div>
 
-      <div className="bg-white rounded-2xl border border-gray-100 shadow-sm p-6 space-y-4">
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 space-y-4">
         <Button
           type="button"
           variant="outline"

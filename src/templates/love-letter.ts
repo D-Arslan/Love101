@@ -4,7 +4,6 @@ export const loveLetter: TemplateConfig = {
   id: "love-letter",
   name: "Mots d'amour",
   description: "Pourquoi je t'aime : une lettre avec un message cache",
-  emoji: "💌",
   defaultColors: {
     primary: "#db2777",
     secondary: "#f9a8d4",

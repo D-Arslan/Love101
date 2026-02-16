@@ -31,6 +31,7 @@ import type { TemplateType } from "@/lib/constants"
 import { MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH } from "@/lib/constants"
 import type { CustomConfig, QuizQuestionData, QuizPrize } from "@/lib/types/database"
 import { DEFAULT_SORRY_MESSAGES, DEFAULT_SORRY_REFUSALS } from "@/lib/sorry-defaults"
+import { TemplateIcon } from "@/components/shared/TemplateIcon"
 
 interface CreateFormProps {
   templateType: TemplateType
@@ -202,7 +203,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
             Retour
           </Link>
           <div className="flex items-center gap-3">
-            <span className="text-4xl">{template.emoji}</span>
+            <TemplateIcon type={templateType} size="lg" />
             <div>
               <h1 className="font-serif text-2xl sm:text-3xl font-bold text-gray-900">
                 {template.name}
@@ -918,7 +919,9 @@ export function CreateForm({ templateType }: CreateFormProps) {
                 transition={{ duration: 0.3 }}
                 className="w-full"
               >
-                <span className="text-5xl mb-4 block">{template.emoji}</span>
+                <div className="mb-4 flex justify-center">
+                  <TemplateIcon type={templateType} size="xl" />
+                </div>
                 <h2
                   className="font-serif text-2xl font-bold mb-2"
                   style={{ color: colors.primary }}

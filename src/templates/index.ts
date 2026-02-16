@@ -10,7 +10,6 @@ export interface TemplateConfig {
   id: TemplateType
   name: string
   description: string
-  emoji: string
   defaultColors: {
     primary: string
     secondary: string

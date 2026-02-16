@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { Heart, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Logo } from "@/components/shared/Logo"
 
 // Deterministic pseudo-random to avoid hydration mismatch
 function seeded(i: number) {
@@ -26,7 +27,7 @@ export function Hero() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
+    <section className="relative min-h-[calc(100vh-3.5rem)] flex items-center justify-center overflow-hidden bg-gradient-to-br from-rose-50 via-pink-50 to-purple-50">
       {/* Floating hearts background */}
       <div className="absolute inset-0 pointer-events-none">
         {floatingHearts.map((heart) => (
@@ -59,7 +60,7 @@ export function Hero() {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <span className="text-6xl">💌</span>
+          <Logo size="lg" />
         </motion.div>
 
         <motion.h1

@@ -4,7 +4,6 @@ export const apology: TemplateConfig = {
   id: "apology",
   name: "Demande de pardon",
   description: "Un algorithme de supplication interactif et irresistible",
-  emoji: "🥺",
   defaultColors: {
     primary: "#7c3aed",
     secondary: "#c4b5fd",
