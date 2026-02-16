@@ -1,6 +1,9 @@
 import { notFound } from "next/navigation"
+import { headers } from "next/headers"
 import type { Metadata } from "next"
+import crypto from "crypto"
 import { createClient } from "@/lib/supabase/server"
+import { createAdminClient } from "@/lib/supabase/admin"
 import { getTemplate } from "@/templates"
 import { CardRenderer } from "@/components/card-display/CardRenderer"
 import type { Card } from "@/lib/types/database"
@@ -20,6 +23,25 @@ async function getCard(id: string): Promise<Card | null> {
     .single()
 
   return data as Card | null
+}
+
+async function trackView(cardId: string) {
+  try {
+    const headersList = await headers()
+    const forwarded = headersList.get("x-forwarded-for")
+    const ip = forwarded?.split(",")[0]?.trim() ?? "unknown"
+    const ipHash = crypto.createHash("sha256").update(ip).digest("hex")
+    const userAgent = headersList.get("user-agent") ?? null
+
+    const admin = createAdminClient()
+    await admin.from("card_views").insert({
+      card_id: cardId,
+      viewer_ip_hash: ipHash,
+      user_agent: userAgent,
+    })
+  } catch {
+    // View tracking is non-critical — don't break the page
+  }
 }
 
 export async function generateMetadata({
@@ -52,6 +74,9 @@ export default async function CardPage({ params }: CardPageProps) {
   if (!card) {
     notFound()
   }
+
+  // Track view (fire-and-forget, non-blocking)
+  trackView(card.id)
 
   return <CardRenderer card={card} />
 }

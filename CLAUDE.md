@@ -2,7 +2,7 @@
 
 ## Overview
 Love101 is a web platform for creating and sharing personalized love messages.
-Users pick a template (Valentine, Apology, Love Letter, Anniversary), customize it,
+Users pick a template (Valentine, Apology, Love Letter, Anniversary, Quiz Game, Rendez-vous), customize it,
 and get a unique shareable link. Recipients open the link and discover an animated,
 interactive message.
 
@@ -49,12 +49,12 @@ A single `CardRenderer` component reads the config and renders.
 ### cards
 - `id` TEXT PRIMARY KEY (nanoid)
 - `user_id` UUID FK → auth.users (nullable for anonymous)
-- `template_type` TEXT (valentine | apology | love-letter | anniversary)
+- `template_type` TEXT (valentine | apology | love-letter | anniversary | quiz-game | rdv)
 - `recipient_name` TEXT (max 50)
 - `sender_name` TEXT (max 50)
 - `message` TEXT (max 2000)
 - `theme_colors` JSONB (primary, secondary, background, text)
-- `custom_config` JSONB (template-specific: quiz, countdown, scratch, reasons, music)
+- `custom_config` JSONB (template-specific: quiz, quiz_prizes, countdown, scratch, reasons, promises, memories, music, sorry_messages, sorry_refusals, rdv, rdv_clues)
 - `is_published` BOOLEAN
 - `created_at` / `updated_at` TIMESTAMPTZ
 
@@ -83,19 +83,20 @@ src/
 │   ├── l/[id]/page.tsx             # Public shareable link
 │   ├── dashboard/                  # Auth-protected user dashboard
 │   ├── auth/                       # Login, signup, OAuth callback
-│   └── api/cards/ + quiz/          # API routes
+│   └── api/cards/ + cards/[id]/     # API routes (POST create, DELETE)
 ├── components/
 │   ├── ui/                         # shadcn/ui (auto-generated)
 │   ├── landing/                    # Hero, TemplateGrid, Footer
 │   ├── create/                     # CustomizationForm, LivePreview
-│   ├── card-display/               # CardRenderer, Envelope, Scratch, Quiz, Countdown, Carousel, Music
+│   ├── card-display/               # CardRenderer, Envelope, Scratch, Quiz, QuizWithPrizes, Countdown, Reasons, Promises, Memories, SorryAlgorithm, RdvDetails, RdvClues, Music
 │   ├── dashboard/                  # CardList, CardStats
 │   ├── auth/                       # LoginForm, SignupForm
-│   └── shared/                     # ShareButtons, ThemeProvider
+│   └── shared/                     # ShareBar, Navbar, UserMenu, Providers
 ├── lib/
 │   ├── supabase/                   # client, server, admin
 │   ├── types/                      # database, card, quiz
-│   ├── validators/                 # Zod schemas
+│   ├── validators/                 # Zod schemas (card, auth)
+│   ├── sorry-defaults.ts           # Default sorry algorithm messages
 │   ├── utils.ts                    # cn() helper
 │   └── constants.ts                # App-wide constants
 ├── templates/                      # Template config objects
@@ -109,8 +110,8 @@ src/
 
 ## Implementation Status
 - [x] Phase 1: Project scaffolding
-- [ ] Phase 2: Landing page + Templates
-- [ ] Phase 3: Form + Supabase + Shareable links (MVP)
-- [ ] Phase 4: Interactive features
-- [ ] Phase 5: Auth + Dashboard
+- [x] Phase 2: Landing page + Templates (6 templates)
+- [x] Phase 3: Form + Supabase + Shareable links (MVP)
+- [x] Phase 4: Interactive features (envelope, countdown, reasons, promises, memories, quiz, quiz-prizes, scratch, sorry-algorithm, rdv-details, rdv-clues, music)
+- [x] Phase 5: Auth + Dashboard (email/password + Google OAuth, protected dashboard, card management, view tracking)
 - [ ] Phase 6: Polish + Deployment

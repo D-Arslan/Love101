@@ -1,6 +1,8 @@
 import { createServerClient } from "@supabase/ssr"
 import { NextResponse, type NextRequest } from "next/server"
 
+const PROTECTED_PATHS = ["/dashboard"]
+
 export async function middleware(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request })
 
@@ -25,8 +27,25 @@ export async function middleware(request: NextRequest) {
     }
   )
 
-  // Refresh the auth token
-  await supabase.auth.getUser()
+  const {
+    data: { user },
+  } = await supabase.auth.getUser()
+
+  // Protect dashboard routes
+  const isProtected = PROTECTED_PATHS.some((path) =>
+    request.nextUrl.pathname.startsWith(path)
+  )
+
+  if (isProtected && !user) {
+    const loginUrl = new URL("/auth/login", request.url)
+    loginUrl.searchParams.set("next", request.nextUrl.pathname)
+    return NextResponse.redirect(loginUrl)
+  }
+
+  // Redirect logged-in users away from auth pages
+  if (user && request.nextUrl.pathname.startsWith("/auth/")) {
+    return NextResponse.redirect(new URL("/dashboard", request.url))
+  }
 
   return supabaseResponse
 }

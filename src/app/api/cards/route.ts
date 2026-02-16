@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { nanoid } from "nanoid"
 import { createAdminClient } from "@/lib/supabase/admin"
+import { createClient } from "@/lib/supabase/server"
 import { createCardSchema } from "@/lib/validators/card"
 import { CARD_ID_LENGTH } from "@/lib/constants"
 
@@ -16,6 +17,12 @@ export async function POST(request: Request) {
       )
     }
 
+    // Capture user_id if authenticated (anonymous creation still allowed)
+    const supabaseAuth = await createClient()
+    const {
+      data: { user },
+    } = await supabaseAuth.auth.getUser()
+
     const cardId = nanoid(CARD_ID_LENGTH)
     const supabase = createAdminClient()
 
@@ -23,6 +30,7 @@ export async function POST(request: Request) {
       .from("cards")
       .insert({
         id: cardId,
+        user_id: user?.id ?? null,
         template_type: result.data.template_type,
         recipient_name: result.data.recipient_name,
         sender_name: result.data.sender_name,

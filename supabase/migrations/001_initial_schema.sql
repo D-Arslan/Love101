@@ -8,7 +8,7 @@
 CREATE TABLE cards (
   id TEXT PRIMARY KEY,
   user_id UUID REFERENCES auth.users(id) ON DELETE SET NULL,
-  template_type TEXT NOT NULL CHECK (template_type IN ('valentine', 'apology', 'love-letter', 'anniversary')),
+  template_type TEXT NOT NULL CHECK (template_type IN ('valentine', 'apology', 'love-letter', 'anniversary', 'quiz-game', 'rdv')),
   recipient_name TEXT NOT NULL CHECK (char_length(recipient_name) <= 50),
   sender_name TEXT NOT NULL CHECK (char_length(sender_name) <= 50),
   message TEXT NOT NULL CHECK (char_length(message) <= 2000),
@@ -92,6 +92,22 @@ CREATE POLICY "Anyone can record views"
 -- Card views: card owners can read views on their cards
 CREATE POLICY "Card owners can view their card stats"
   ON card_views FOR SELECT
+  USING (
+    EXISTS (
+      SELECT 1 FROM cards
+      WHERE cards.id = card_views.card_id
+      AND cards.user_id = auth.uid()
+    )
+  );
+
+-- Cards: owners can delete their own cards
+CREATE POLICY "Card owners can delete their cards"
+  ON cards FOR DELETE
+  USING (auth.uid() = user_id);
+
+-- Card views: owners can delete views on their cards (cascade from card delete)
+CREATE POLICY "Card owners can delete their card views"
+  ON card_views FOR DELETE
   USING (
     EXISTS (
       SELECT 1 FROM cards
