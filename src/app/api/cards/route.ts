@@ -28,6 +28,7 @@ export async function POST(request: Request) {
         sender_name: result.data.sender_name,
         message: result.data.message,
         theme_colors: result.data.theme_colors,
+        custom_config: result.data.custom_config || {},
         is_published: true,
       })
       .select()

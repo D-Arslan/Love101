@@ -2,6 +2,8 @@ import { valentine } from "./valentine"
 import { apology } from "./apology"
 import { loveLetter } from "./love-letter"
 import { anniversary } from "./anniversary"
+import { quizGame } from "./quiz-game"
+import { rdv } from "./rdv"
 import type { TemplateType } from "@/lib/constants"
 
 export interface TemplateConfig {
@@ -28,6 +30,8 @@ export const templates: Record<TemplateType, TemplateConfig> = {
   apology,
   "love-letter": loveLetter,
   anniversary,
+  "quiz-game": quizGame,
+  rdv,
 }
 
 export const templateList = Object.values(templates)

@@ -3,7 +3,24 @@
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
-import { Send, Loader2, ArrowLeft } from "lucide-react"
+import {
+  Send,
+  Loader2,
+  ArrowLeft,
+  Plus,
+  Trash2,
+  Clock,
+  Heart,
+  HelpCircle,
+  Sparkles,
+  Music,
+  HandHeart,
+  Star,
+  MapPin,
+  Gift,
+  Search,
+  MessageSquare,
+} from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,14 +29,25 @@ import { Label } from "@/components/ui/label"
 import { templates, type TemplateConfig } from "@/templates"
 import type { TemplateType } from "@/lib/constants"
 import { MAX_MESSAGE_LENGTH, MAX_NAME_LENGTH } from "@/lib/constants"
+import type { CustomConfig, QuizQuestionData, QuizPrize } from "@/lib/types/database"
+import { DEFAULT_SORRY_MESSAGES, DEFAULT_SORRY_REFUSALS } from "@/lib/sorry-defaults"
 
 interface CreateFormProps {
   templateType: TemplateType
 }
 
+function emptyQuizQuestion(): QuizQuestionData {
+  return { question: "", options: ["", "", "", ""], correct_answer: "" }
+}
+
+function emptyQuizPrize(): QuizPrize {
+  return { min_score: 0, text: "" }
+}
+
 export function CreateForm({ templateType }: CreateFormProps) {
   const router = useRouter()
   const template: TemplateConfig = templates[templateType]
+  const features = template.features
 
   const [recipientName, setRecipientName] = useState("")
   const [senderName, setSenderName] = useState("")
@@ -27,6 +55,105 @@ export function CreateForm({ templateType }: CreateFormProps) {
   const [colors, setColors] = useState(template.defaultColors)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // Feature states
+  const [countdownDate, setCountdownDate] = useState("")
+  const [reasons, setReasons] = useState<string[]>([""])
+  const [promises, setPromises] = useState<string[]>([""])
+  const [memories, setMemories] = useState<string[]>([""])
+  const [quiz, setQuiz] = useState<QuizQuestionData[]>([emptyQuizQuestion()])
+  const [quizPrizes, setQuizPrizes] = useState<QuizPrize[]>([emptyQuizPrize()])
+  const [scratchText, setScratchText] = useState("")
+  const [musicEnabled, setMusicEnabled] = useState(false)
+  const [musicUrl, setMusicUrl] = useState("")
+  // Sorry algorithm — pre-filled with defaults so the user can see/edit them
+  const [sorryMessages, setSorryMessages] = useState<string[]>([...DEFAULT_SORRY_MESSAGES])
+  const [sorryRefusals, setSorryRefusals] = useState<string[]>([...DEFAULT_SORRY_REFUSALS])
+  // RDV
+  const [rdvDate, setRdvDate] = useState("")
+  const [rdvTime, setRdvTime] = useState("")
+  const [rdvLocation, setRdvLocation] = useState("")
+  const [rdvTheme, setRdvTheme] = useState("")
+  const [rdvClues, setRdvClues] = useState<string[]>([""])
+
+  function buildCustomConfig(): CustomConfig {
+    const config: CustomConfig = {}
+
+    if (features.includes("countdown") && countdownDate) {
+      config.countdown_date = countdownDate
+      // Anniversary counts UP from a past date
+      if (templateType === "anniversary") {
+        config.countdown_direction = "up"
+      }
+    }
+
+    if (features.includes("reasons")) {
+      const filtered = reasons.filter((r) => r.trim())
+      if (filtered.length > 0) config.reasons = filtered
+    }
+
+    if (features.includes("promises")) {
+      const filtered = promises.filter((p) => p.trim())
+      if (filtered.length > 0) config.promises = filtered
+    }
+
+    if (features.includes("memories")) {
+      const filtered = memories.filter((m) => m.trim())
+      if (filtered.length > 0) config.memories = filtered
+    }
+
+    if (features.includes("sorry-algorithm")) {
+      const filteredMsg = sorryMessages.filter((m) => m.trim())
+      if (filteredMsg.length > 0) config.sorry_messages = filteredMsg
+      const filteredRef = sorryRefusals.filter((r) => r.trim())
+      if (filteredRef.length > 0) config.sorry_refusals = filteredRef
+    }
+
+    if (features.includes("quiz") || features.includes("quiz-prizes")) {
+      const valid = quiz.filter(
+        (q) => q.question.trim() && q.options.every((o) => o.trim()) && q.correct_answer.trim()
+      )
+      if (valid.length > 0) config.quiz = valid
+    }
+
+    if (features.includes("quiz-prizes")) {
+      const valid = quizPrizes.filter((p) => p.text.trim())
+      if (valid.length > 0) config.quiz_prizes = valid
+    }
+
+    if (features.includes("scratch") && scratchText.trim()) {
+      config.scratch_text = scratchText
+    }
+
+    if (features.includes("music")) {
+      config.music_enabled = musicEnabled
+      if (musicEnabled && musicUrl.trim()) {
+        config.music_url = musicUrl
+      }
+    }
+
+    if (features.includes("rdv-details")) {
+      if (rdvDate && rdvTime && rdvLocation.trim()) {
+        config.rdv = {
+          date: rdvDate,
+          time: rdvTime,
+          location: rdvLocation,
+          ...(rdvTheme.trim() ? { theme: rdvTheme } : {}),
+        }
+        // Auto-set countdown from RDV date/time
+        if (features.includes("countdown") && !countdownDate) {
+          config.countdown_date = `${rdvDate}T${rdvTime}`
+        }
+      }
+    }
+
+    if (features.includes("rdv-clues")) {
+      const filtered = rdvClues.filter((c) => c.trim())
+      if (filtered.length > 0) config.rdv_clues = filtered
+    }
+
+    return config
+  }
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
@@ -43,6 +170,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
           sender_name: senderName,
           message,
           theme_colors: colors,
+          custom_config: buildCustomConfig(),
         }),
       })
 
@@ -93,9 +221,10 @@ export function CreateForm({ templateType }: CreateFormProps) {
             transition={{ duration: 0.4 }}
             className="space-y-6 bg-white rounded-2xl p-6 shadow-sm border border-gray-100"
           >
+            {/* Basic fields */}
             <div className="space-y-2">
               <Label htmlFor="recipientName">
-                Pour qui ? {template.placeholder.recipientName && `(ex: ${template.placeholder.recipientName})`}
+                Pour qui ? (ex: {template.placeholder.recipientName})
               </Label>
               <Input
                 id="recipientName"
@@ -109,7 +238,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
 
             <div className="space-y-2">
               <Label htmlFor="senderName">
-                De la part de ? {template.placeholder.senderName && `(ex: ${template.placeholder.senderName})`}
+                De la part de ? (ex: {template.placeholder.senderName})
               </Label>
               <Input
                 id="senderName"
@@ -122,9 +251,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="message">
-                Ton message
-              </Label>
+              <Label htmlFor="message">Ton message</Label>
               <Textarea
                 id="message"
                 placeholder={template.placeholder.message}
@@ -157,10 +284,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
                       type="color"
                       value={colors[key]}
                       onChange={(e) =>
-                        setColors((prev) => ({
-                          ...prev,
-                          [key]: e.target.value,
-                        }))
+                        setColors((prev) => ({ ...prev, [key]: e.target.value }))
                       }
                       className="w-8 h-8 rounded-lg border border-gray-200 cursor-pointer"
                     />
@@ -168,6 +292,583 @@ export function CreateForm({ templateType }: CreateFormProps) {
                   </div>
                 ))}
               </div>
+            </div>
+
+            {/* === FEATURE SECTIONS === */}
+            <div className="border-t border-gray-100 pt-6">
+              <p className="text-sm font-semibold text-gray-700 mb-4">
+                Fonctionnalites interactives
+              </p>
+
+              {/* RDV Details */}
+              {features.includes("rdv-details") && (
+                <div className="space-y-3 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-gray-400" />
+                    Details du rendez-vous
+                  </Label>
+                  <div className="grid grid-cols-2 gap-2">
+                    <div>
+                      <Label className="text-xs text-gray-400">Date</Label>
+                      <Input
+                        type="date"
+                        value={rdvDate}
+                        onChange={(e) => setRdvDate(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <Label className="text-xs text-gray-400">Heure</Label>
+                      <Input
+                        type="time"
+                        value={rdvTime}
+                        onChange={(e) => setRdvTime(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <Label className="text-xs text-gray-400">Lieu</Label>
+                    <Input
+                      placeholder="Restaurant Le Romantique, Paris..."
+                      value={rdvLocation}
+                      onChange={(e) => setRdvLocation(e.target.value)}
+                      maxLength={200}
+                    />
+                  </div>
+                  <div>
+                    <Label className="text-xs text-gray-400">Theme (optionnel)</Label>
+                    <Input
+                      placeholder="Soiree chic, pique-nique, cinema..."
+                      value={rdvTheme}
+                      onChange={(e) => setRdvTheme(e.target.value)}
+                      maxLength={200}
+                    />
+                  </div>
+                </div>
+              )}
+
+              {/* RDV Clues */}
+              {features.includes("rdv-clues") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Search className="h-4 w-4 text-gray-400" />
+                    Indices ({rdvClues.length}/5)
+                  </Label>
+                  <p className="text-xs text-gray-400">
+                    Des indices que ton/ta partenaire devra reveler un par un
+                  </p>
+                  <div className="space-y-2">
+                    {rdvClues.map((clue, i) => (
+                      <div key={i} className="flex gap-2">
+                        <Input
+                          placeholder={`Indice #${i + 1}`}
+                          value={clue}
+                          onChange={(e) => {
+                            const next = [...rdvClues]
+                            next[i] = e.target.value
+                            setRdvClues(next)
+                          }}
+                          maxLength={200}
+                        />
+                        {rdvClues.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setRdvClues(rdvClues.filter((_, j) => j !== i))}
+                            className="shrink-0"
+                          >
+                            <Trash2 className="h-4 w-4 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {rdvClues.length < 5 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setRdvClues([...rdvClues, ""])}
+                      className="mt-1"
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter un indice
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Countdown */}
+              {features.includes("countdown") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-gray-400" />
+                    {templateType === "anniversary"
+                      ? "Date de votre anniversaire"
+                      : features.includes("rdv-details")
+                        ? "Compte a rebours (auto-rempli depuis le RDV)"
+                        : "Compte a rebours"}
+                  </Label>
+                  <Input
+                    type="datetime-local"
+                    value={countdownDate}
+                    onChange={(e) => setCountdownDate(e.target.value)}
+                  />
+                  <p className="text-xs text-gray-400">
+                    {templateType === "anniversary"
+                      ? "La date depuis laquelle vous etes ensemble — un compteur affichera le temps ecoule"
+                      : "Optionnel — un timer s'affichera sur la carte"}
+                  </p>
+                </div>
+              )}
+
+              {/* Reasons (love-letter) */}
+              {features.includes("reasons") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Heart className="h-4 w-4 text-gray-400" />
+                    Pourquoi je t&apos;aime ({reasons.length}/10)
+                  </Label>
+                  <div className="space-y-2">
+                    {reasons.map((reason, i) => (
+                      <div key={i} className="flex gap-2">
+                        <Input
+                          placeholder={`Raison #${i + 1}`}
+                          value={reason}
+                          onChange={(e) => {
+                            const next = [...reasons]
+                            next[i] = e.target.value
+                            setReasons(next)
+                          }}
+                          maxLength={200}
+                        />
+                        {reasons.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setReasons(reasons.filter((_, j) => j !== i))}
+                            className="shrink-0"
+                          >
+                            <Trash2 className="h-4 w-4 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {reasons.length < 10 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setReasons([...reasons, ""])}
+                      className="mt-1"
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Promises (apology) */}
+              {features.includes("promises") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <HandHeart className="h-4 w-4 text-gray-400" />
+                    Mes promesses ({promises.length}/10)
+                  </Label>
+                  <div className="space-y-2">
+                    {promises.map((promise, i) => (
+                      <div key={i} className="flex gap-2">
+                        <Input
+                          placeholder={`Promesse #${i + 1}`}
+                          value={promise}
+                          onChange={(e) => {
+                            const next = [...promises]
+                            next[i] = e.target.value
+                            setPromises(next)
+                          }}
+                          maxLength={200}
+                        />
+                        {promises.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setPromises(promises.filter((_, j) => j !== i))}
+                            className="shrink-0"
+                          >
+                            <Trash2 className="h-4 w-4 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {promises.length < 10 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setPromises([...promises, ""])}
+                      className="mt-1"
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter une promesse
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Sorry Messages (apology) */}
+              {features.includes("sorry-algorithm") && (
+                <div className="space-y-4 mb-5">
+                  <div className="space-y-2">
+                    <Label className="flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-gray-400" />
+                      Tes phrases de supplication ({sorryMessages.length}/20)
+                    </Label>
+                    <p className="text-xs text-gray-400">
+                      Personnalise les messages qui s&apos;afficheront quand tu supplies. Laisse vide pour les phrases par defaut.
+                    </p>
+                    <div className="space-y-2">
+                      {sorryMessages.map((msg, i) => (
+                        <div key={i} className="flex gap-2">
+                          <Input
+                            placeholder={`Message #${i + 1} — ex: S'il te plait, pardonne-moi...`}
+                            value={msg}
+                            onChange={(e) => {
+                              const next = [...sorryMessages]
+                              next[i] = e.target.value
+                              setSorryMessages(next)
+                            }}
+                            maxLength={300}
+                          />
+                          {sorryMessages.length > 1 && (
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => setSorryMessages(sorryMessages.filter((_, j) => j !== i))}
+                              className="shrink-0"
+                            >
+                              <Trash2 className="h-4 w-4 text-gray-400" />
+                            </Button>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    {sorryMessages.length < 20 && (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setSorryMessages([...sorryMessages, ""])}
+                        className="mt-1"
+                      >
+                        <Plus className="h-4 w-4 mr-1" />
+                        Ajouter un message
+                      </Button>
+                    )}
+                  </div>
+
+                  <div className="space-y-2">
+                    <Label className="flex items-center gap-2">
+                      <MessageSquare className="h-4 w-4 text-gray-400" />
+                      Reactions quand il/elle refuse ({sorryRefusals.length}/13)
+                    </Label>
+                    <p className="text-xs text-gray-400">
+                      Ce qui s&apos;affiche quand la personne clique &quot;Non&quot;. Laisse vide pour les reactions par defaut.
+                    </p>
+                    <div className="space-y-2">
+                      {sorryRefusals.map((ref, i) => (
+                        <div key={i} className="flex gap-2">
+                          <Input
+                            placeholder={`Reaction #${i + 1} — ex: Non ?! Mais... quand meme !`}
+                            value={ref}
+                            onChange={(e) => {
+                              const next = [...sorryRefusals]
+                              next[i] = e.target.value
+                              setSorryRefusals(next)
+                            }}
+                            maxLength={300}
+                          />
+                          {sorryRefusals.length > 1 && (
+                            <Button
+                              type="button"
+                              variant="ghost"
+                              size="icon"
+                              onClick={() => setSorryRefusals(sorryRefusals.filter((_, j) => j !== i))}
+                              className="shrink-0"
+                            >
+                              <Trash2 className="h-4 w-4 text-gray-400" />
+                            </Button>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                    {sorryRefusals.length < 13 && (
+                      <Button
+                        type="button"
+                        variant="outline"
+                        size="sm"
+                        onClick={() => setSorryRefusals([...sorryRefusals, ""])}
+                        className="mt-1"
+                      >
+                        <Plus className="h-4 w-4 mr-1" />
+                        Ajouter une reaction
+                      </Button>
+                    )}
+                  </div>
+                </div>
+              )}
+
+              {/* Memories (anniversary) */}
+              {features.includes("memories") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Star className="h-4 w-4 text-gray-400" />
+                    Nos meilleurs souvenirs ({memories.length}/10)
+                  </Label>
+                  <div className="space-y-2">
+                    {memories.map((memory, i) => (
+                      <div key={i} className="flex gap-2">
+                        <Input
+                          placeholder={`Souvenir #${i + 1}`}
+                          value={memory}
+                          onChange={(e) => {
+                            const next = [...memories]
+                            next[i] = e.target.value
+                            setMemories(next)
+                          }}
+                          maxLength={200}
+                        />
+                        {memories.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            onClick={() => setMemories(memories.filter((_, j) => j !== i))}
+                            className="shrink-0"
+                          >
+                            <Trash2 className="h-4 w-4 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                  {memories.length < 10 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setMemories([...memories, ""])}
+                      className="mt-1"
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter un souvenir
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Quiz */}
+              {(features.includes("quiz") || features.includes("quiz-prizes")) && (
+                <div className="space-y-3 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <HelpCircle className="h-4 w-4 text-gray-400" />
+                    Quiz ({quiz.length}/5 questions)
+                  </Label>
+                  {quiz.map((q, qi) => (
+                    <div
+                      key={qi}
+                      className="bg-gray-50 rounded-xl p-4 space-y-2"
+                    >
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-gray-500">
+                          Question {qi + 1}
+                        </span>
+                        {quiz.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="h-6 w-6"
+                            onClick={() => setQuiz(quiz.filter((_, j) => j !== qi))}
+                          >
+                            <Trash2 className="h-3 w-3 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                      <Input
+                        placeholder="Ta question..."
+                        value={q.question}
+                        onChange={(e) => {
+                          const next = [...quiz]
+                          next[qi] = { ...next[qi], question: e.target.value }
+                          setQuiz(next)
+                        }}
+                        maxLength={200}
+                      />
+                      <div className="grid grid-cols-2 gap-2">
+                        {q.options.map((opt, oi) => (
+                          <Input
+                            key={oi}
+                            placeholder={`Option ${oi + 1}`}
+                            value={opt}
+                            onChange={(e) => {
+                              const next = [...quiz]
+                              const opts = [...next[qi].options]
+                              opts[oi] = e.target.value
+                              next[qi] = { ...next[qi], options: opts }
+                              setQuiz(next)
+                            }}
+                            maxLength={100}
+                          />
+                        ))}
+                      </div>
+                      <Input
+                        placeholder="Bonne reponse (doit correspondre a une option)"
+                        value={q.correct_answer}
+                        onChange={(e) => {
+                          const next = [...quiz]
+                          next[qi] = { ...next[qi], correct_answer: e.target.value }
+                          setQuiz(next)
+                        }}
+                        maxLength={100}
+                      />
+                    </div>
+                  ))}
+                  {quiz.length < 5 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setQuiz([...quiz, emptyQuizQuestion()])}
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter une question
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Quiz Prizes */}
+              {features.includes("quiz-prizes") && (
+                <div className="space-y-3 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Gift className="h-4 w-4 text-gray-400" />
+                    Prix a gratter ({quizPrizes.length}/5)
+                  </Label>
+                  <p className="text-xs text-gray-400">
+                    Definis des recompenses selon le score obtenu au quiz
+                  </p>
+                  {quizPrizes.map((prize, pi) => (
+                    <div key={pi} className="bg-gray-50 rounded-xl p-3 space-y-2">
+                      <div className="flex items-center justify-between">
+                        <span className="text-xs font-medium text-gray-500">
+                          Prix {pi + 1}
+                        </span>
+                        {quizPrizes.length > 1 && (
+                          <Button
+                            type="button"
+                            variant="ghost"
+                            size="icon"
+                            className="h-6 w-6"
+                            onClick={() => setQuizPrizes(quizPrizes.filter((_, j) => j !== pi))}
+                          >
+                            <Trash2 className="h-3 w-3 text-gray-400" />
+                          </Button>
+                        )}
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="w-24">
+                          <Input
+                            type="number"
+                            min={0}
+                            max={5}
+                            placeholder="Score min"
+                            value={prize.min_score || ""}
+                            onChange={(e) => {
+                              const next = [...quizPrizes]
+                              next[pi] = { ...next[pi], min_score: parseInt(e.target.value) || 0 }
+                              setQuizPrizes(next)
+                            }}
+                          />
+                        </div>
+                        <Input
+                          placeholder="Massage, bisou, gateau au chocolat..."
+                          value={prize.text}
+                          onChange={(e) => {
+                            const next = [...quizPrizes]
+                            next[pi] = { ...next[pi], text: e.target.value }
+                            setQuizPrizes(next)
+                          }}
+                          maxLength={200}
+                        />
+                      </div>
+                    </div>
+                  ))}
+                  {quizPrizes.length < 5 && (
+                    <Button
+                      type="button"
+                      variant="outline"
+                      size="sm"
+                      onClick={() => setQuizPrizes([...quizPrizes, emptyQuizPrize()])}
+                    >
+                      <Plus className="h-4 w-4 mr-1" />
+                      Ajouter un prix
+                    </Button>
+                  )}
+                </div>
+              )}
+
+              {/* Scratch */}
+              {features.includes("scratch") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Sparkles className="h-4 w-4 text-gray-400" />
+                    Message a gratter
+                  </Label>
+                  <Input
+                    placeholder="Le message cache a decouvrir..."
+                    value={scratchText}
+                    onChange={(e) => setScratchText(e.target.value)}
+                    maxLength={200}
+                  />
+                </div>
+              )}
+
+              {/* Music */}
+              {features.includes("music") && (
+                <div className="space-y-2 mb-5">
+                  <Label className="flex items-center gap-2">
+                    <Music className="h-4 w-4 text-gray-400" />
+                    Musique de fond
+                  </Label>
+                  <label className="flex items-center gap-2 cursor-pointer">
+                    <input
+                      type="checkbox"
+                      checked={musicEnabled}
+                      onChange={(e) => setMusicEnabled(e.target.checked)}
+                      className="rounded"
+                    />
+                    <span className="text-sm text-gray-600">
+                      Activer la musique
+                    </span>
+                  </label>
+                  {musicEnabled && (
+                    <Input
+                      placeholder="URL du fichier audio (mp3, wav...)"
+                      value={musicUrl}
+                      onChange={(e) => setMusicUrl(e.target.value)}
+                    />
+                  )}
+                  <p className="text-xs text-gray-400">
+                    Colle un lien direct vers un fichier audio (.mp3)
+                  </p>
+                </div>
+              )}
             </div>
 
             {error && (
@@ -184,12 +885,12 @@ export function CreateForm({ templateType }: CreateFormProps) {
               {isSubmitting ? (
                 <>
                   <Loader2 className="mr-2 h-5 w-5 animate-spin" />
-                  Création...
+                  Creation...
                 </>
               ) : (
                 <>
                   <Send className="mr-2 h-5 w-5" />
-                  Créer le message
+                  Creer le message
                 </>
               )}
             </Button>
@@ -202,7 +903,7 @@ export function CreateForm({ templateType }: CreateFormProps) {
             transition={{ duration: 0.4, delay: 0.1 }}
             className="lg:sticky lg:top-8 h-fit"
           >
-            <p className="text-sm font-medium text-gray-500 mb-3">Aperçu</p>
+            <p className="text-sm font-medium text-gray-500 mb-3">Apercu</p>
             <div
               className="rounded-2xl p-8 min-h-[400px] flex flex-col items-center justify-center text-center shadow-sm border border-gray-100 transition-colors duration-300"
               style={{

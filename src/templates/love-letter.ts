@@ -3,7 +3,7 @@ import type { TemplateConfig } from "."
 export const loveLetter: TemplateConfig = {
   id: "love-letter",
   name: "Mots d'amour",
-  description: "Une lettre d'amour pour exprimer tes sentiments",
+  description: "Pourquoi je t'aime : une lettre avec un message cache",
   emoji: "💌",
   defaultColors: {
     primary: "#db2777",
@@ -11,7 +11,7 @@ export const loveLetter: TemplateConfig = {
     background: "#fdf2f8",
     text: "#1f2937",
   },
-  features: ["envelope", "reasons", "countdown", "music"],
+  features: ["envelope", "reasons", "scratch", "music"],
   placeholder: {
     message:
       "Chaque jour a tes cotes est un cadeau. Tu illumines ma vie d'une maniere que les mots ne peuvent decrire...",

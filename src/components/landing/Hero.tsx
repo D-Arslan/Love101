@@ -4,12 +4,18 @@ import { motion } from "framer-motion"
 import { Heart, ArrowDown } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// Deterministic pseudo-random to avoid hydration mismatch
+function seeded(i: number) {
+  const x = Math.sin(i * 9301 + 49297) * 0.5 + 0.5
+  return x
+}
+
 const floatingHearts = Array.from({ length: 12 }, (_, i) => ({
   id: i,
-  x: Math.random() * 100,
-  delay: Math.random() * 5,
-  duration: 4 + Math.random() * 6,
-  size: 14 + Math.random() * 18,
+  x: seeded(i) * 100,
+  delay: seeded(i + 50) * 5,
+  duration: 4 + seeded(i + 100) * 6,
+  size: 14 + seeded(i + 150) * 18,
 }))
 
 export function Hero() {
@@ -29,10 +35,7 @@ export function Hero() {
             className="absolute text-rose-200"
             style={{ left: `${heart.x}%`, fontSize: heart.size }}
             animate={{
-              y: [
-                typeof window !== "undefined" ? window.innerHeight : 800,
-                -50,
-              ],
+              y: [800, -50],
               opacity: [0, 0.4, 0.4, 0],
               rotate: [0, 360],
             }}

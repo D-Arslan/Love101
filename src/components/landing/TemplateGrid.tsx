@@ -9,7 +9,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.15 },
+    transition: { staggerChildren: 0.12 },
   },
 }
 
@@ -18,10 +18,25 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
+const FEATURE_LABELS: Record<string, string> = {
+  envelope: "Enveloppe",
+  countdown: "Compte a rebours",
+  reasons: "Pourquoi je t'aime",
+  promises: "Mes promesses",
+  memories: "Nos souvenirs",
+  quiz: "Quiz",
+  "quiz-prizes": "Prix a gratter",
+  scratch: "Message cache",
+  music: "Musique",
+  "sorry-algorithm": "L'Algorithme du pardon",
+  "rdv-details": "Rendez-vous",
+  "rdv-clues": "Indices",
+}
+
 export function TemplateGrid() {
   return (
     <section id="templates" className="py-20 px-6 bg-white">
-      <div className="max-w-5xl mx-auto">
+      <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -43,13 +58,13 @@ export function TemplateGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {templateList.map((template) => (
             <motion.div key={template.id} variants={cardVariants}>
               <Link href={`/create?template=${template.id}`}>
                 <motion.div
-                  whileHover={{ scale: 1.04, y: -4 }}
+                  whileHover={{ scale: 1.03, y: -4 }}
                   whileTap={{ scale: 0.98 }}
                   className="group relative rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-xl transition-shadow cursor-pointer h-full"
                   style={{
@@ -61,18 +76,21 @@ export function TemplateGrid() {
                   <h3 className="font-semibold text-lg text-gray-900 mb-2">
                     {template.name}
                   </h3>
-                  <p className="text-sm text-gray-500 leading-relaxed">
+                  <p className="text-sm text-gray-500 leading-relaxed mb-4">
                     {template.description}
                   </p>
-                  <div className="mt-4 flex flex-wrap gap-1.5">
-                    {template.features.slice(0, 3).map((feature) => (
-                      <span
-                        key={feature}
-                        className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500"
-                      >
-                        {feature}
-                      </span>
-                    ))}
+                  <div className="flex flex-wrap gap-1.5">
+                    {template.features
+                      .filter((f) => f !== "envelope" && f !== "music")
+                      .slice(0, 3)
+                      .map((feature) => (
+                        <span
+                          key={feature}
+                          className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500"
+                        >
+                          {FEATURE_LABELS[feature] || feature}
+                        </span>
+                      ))}
                   </div>
                   <div
                     className="absolute bottom-0 left-0 right-0 h-1 rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity"
