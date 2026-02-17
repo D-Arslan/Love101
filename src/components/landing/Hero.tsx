@@ -57,10 +57,10 @@ export function Hero() {
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-          className="mb-6"
+          transition={{ duration: 0.6, type: "spring", stiffness: 200 }}
+          className="mb-8 flex justify-center"
         >
-          <Logo size="lg" />
+          <Logo size="xl" />
         </motion.div>
 
         <motion.h1

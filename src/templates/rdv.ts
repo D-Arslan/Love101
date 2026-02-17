@@ -4,6 +4,7 @@ export const rdv: TemplateConfig = {
   id: "rdv",
   name: "Rendez-vous",
   description: "Donne un rendez-vous mysterieux avec des indices",
+  emoji: "📍",
   defaultColors: {
     primary: "#059669",
     secondary: "#6ee7b7",

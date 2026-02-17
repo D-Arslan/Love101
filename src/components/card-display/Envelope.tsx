@@ -3,17 +3,15 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import type { ThemeColors } from "@/lib/types/database"
-import type { TemplateType } from "@/lib/constants"
-import { TemplateIcon } from "@/components/shared/TemplateIcon"
 
 interface EnvelopeProps {
   colors: ThemeColors
   recipientName: string
-  templateType: TemplateType
+  emoji: string
   onOpen: () => void
 }
 
-export function Envelope({ colors, recipientName, templateType, onOpen }: EnvelopeProps) {
+export function Envelope({ colors, recipientName, emoji, onOpen }: EnvelopeProps) {
   const [isOpening, setIsOpening] = useState(false)
 
   function handleOpen() {
@@ -60,13 +58,13 @@ export function Envelope({ colors, recipientName, templateType, onOpen }: Envelo
               style={{ backgroundColor: colors.primary }}
             />
 
-            {/* Seal icon */}
+            {/* Heart seal */}
             <motion.div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-4xl z-10"
               animate={{ scale: [1, 1.15, 1] }}
               transition={{ duration: 1.5, repeat: Infinity }}
             >
-              <TemplateIcon type={templateType} size="lg" className="bg-white/20 backdrop-blur-sm" />
+              {emoji}
             </motion.div>
           </motion.div>
 
@@ -124,7 +122,7 @@ export function Envelope({ colors, recipientName, templateType, onOpen }: Envelo
               animate={{ y: -100, opacity: 0 }}
               transition={{ delay: 0.4, duration: 0.5 }}
             >
-              <TemplateIcon type={templateType} size="md" />
+              <span className="text-3xl">{emoji}</span>
             </motion.div>
           </motion.div>
         </motion.div>

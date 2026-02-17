@@ -4,8 +4,6 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { templateList } from "@/templates"
 import { Sparkles } from "lucide-react"
-import { TemplateIcon } from "@/components/shared/TemplateIcon"
-import type { TemplateType } from "@/lib/constants"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -60,7 +58,7 @@ export function TemplateGrid() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {templateList.map((template) => (
             <motion.div key={template.id} variants={cardVariants}>
@@ -68,15 +66,13 @@ export function TemplateGrid() {
                 <motion.div
                   whileHover={{ scale: 1.03, y: -4 }}
                   whileTap={{ scale: 0.98 }}
-                  className="group relative rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-xl transition-all cursor-pointer h-full"
+                  className="group relative rounded-2xl border border-gray-100 p-6 bg-white shadow-sm hover:shadow-xl transition-shadow cursor-pointer h-full"
                   style={{
                     borderTopColor: template.defaultColors.primary,
                     borderTopWidth: "3px",
                   }}
                 >
-                  <div className="mb-4">
-                    <TemplateIcon type={template.id as TemplateType} size="lg" />
-                  </div>
+                  <div className="text-5xl mb-4">{template.emoji}</div>
                   <h3 className="font-semibold text-lg text-gray-900 mb-2">
                     {template.name}
                   </h3>

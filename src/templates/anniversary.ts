@@ -4,6 +4,7 @@ export const anniversary: TemplateConfig = {
   id: "anniversary",
   name: "Anniversaire",
   description: "Nos meilleurs souvenirs, un quiz et un compteur de jours ensemble",
+  emoji: "🥂",
   defaultColors: {
     primary: "#d97706",
     secondary: "#fcd34d",

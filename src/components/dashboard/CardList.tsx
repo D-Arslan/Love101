@@ -2,11 +2,10 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Eye, ExternalLink, Plus, Heart } from "lucide-react"
+import { Eye, ExternalLink, Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { DeleteCardButton } from "./DeleteCardButton"
-import { TemplateIcon } from "@/components/shared/TemplateIcon"
 import { templates } from "@/templates"
 import type { TemplateType } from "@/lib/constants"
 
@@ -36,11 +35,7 @@ export function CardList({ cards }: CardListProps) {
   if (cards.length === 0) {
     return (
       <div className="text-center py-16">
-        <div className="flex justify-center mb-4">
-          <div className="w-16 h-16 rounded-2xl bg-rose-50 flex items-center justify-center">
-            <Heart className="h-8 w-8 text-rose-500" />
-          </div>
-        </div>
+        <span className="text-5xl block mb-4">💌</span>
         <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
           Aucun message pour l&apos;instant
         </h3>
@@ -77,9 +72,9 @@ export function CardList({ cards }: CardListProps) {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: i * 0.05 }}
-            className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 flex items-center gap-4 hover:bg-gray-50/50 transition-colors"
+            className="bg-white rounded-xl border border-gray-100 shadow-sm p-4 flex items-center gap-4"
           >
-            <TemplateIcon type={card.template_type as TemplateType} size="sm" />
+            <span className="text-2xl">{template?.emoji ?? "💌"}</span>
 
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">

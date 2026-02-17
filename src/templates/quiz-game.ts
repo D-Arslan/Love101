@@ -4,6 +4,7 @@ export const quizGame: TemplateConfig = {
   id: "quiz-game",
   name: "Tu me connais ?",
   description: "Un quiz sur ton couple avec des prix a gratter selon le score",
+  emoji: "🧠",
   defaultColors: {
     primary: "#2563eb",
     secondary: "#93c5fd",

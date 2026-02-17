@@ -4,6 +4,7 @@ export const valentine: TemplateConfig = {
   id: "valentine",
   name: "Saint-Valentin",
   description: "Une invitation : Veux-tu etre ma valentine ?",
+  emoji: "💝",
   defaultColors: {
     primary: "#e11d48",
     secondary: "#fda4af",
