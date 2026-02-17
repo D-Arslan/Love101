@@ -7,10 +7,9 @@ import { ChevronLeft, ChevronRight, HandHeart } from "lucide-react"
 interface PromisesProps {
   promises: string[]
   primaryColor: string
-  secondaryColor: string
 }
 
-export function Promises({ promises, primaryColor, secondaryColor }: PromisesProps) {
+export function Promises({ promises, primaryColor }: PromisesProps) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 

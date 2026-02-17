@@ -7,10 +7,9 @@ import { ChevronLeft, ChevronRight, Heart } from "lucide-react"
 interface ReasonsProps {
   reasons: string[]
   primaryColor: string
-  secondaryColor: string
 }
 
-export function Reasons({ reasons, primaryColor, secondaryColor }: ReasonsProps) {
+export function Reasons({ reasons, primaryColor }: ReasonsProps) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 

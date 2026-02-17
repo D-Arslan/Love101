@@ -7,10 +7,9 @@ import { ChevronLeft, ChevronRight, Star } from "lucide-react"
 interface MemoriesProps {
   memories: string[]
   primaryColor: string
-  secondaryColor: string
 }
 
-export function Memories({ memories, primaryColor, secondaryColor }: MemoriesProps) {
+export function Memories({ memories, primaryColor }: MemoriesProps) {
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 

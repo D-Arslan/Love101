@@ -4,9 +4,14 @@ import { createAdminClient } from "@/lib/supabase/admin"
 import { createClient } from "@/lib/supabase/server"
 import { createCardSchema } from "@/lib/validators/card"
 import { CARD_ID_LENGTH } from "@/lib/constants"
+import { rateLimit } from "@/lib/rate-limit"
 
 export async function POST(request: Request) {
   try {
+    // 10 cards per minute per IP
+    const limited = await rateLimit({ maxRequests: 10, windowMs: 60_000 })
+    if (limited) return limited
+
     const body = await request.json()
 
     const result = createCardSchema.safeParse(body)

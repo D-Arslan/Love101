@@ -9,7 +9,6 @@ interface QuizWithPrizesProps {
   questions: QuizQuestionData[]
   prizes: QuizPrize[]
   primaryColor: string
-  secondaryColor: string
 }
 
 function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryColor: string }) {
@@ -120,7 +119,7 @@ function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryC
   )
 }
 
-export function QuizWithPrizes({ questions, prizes, primaryColor, secondaryColor }: QuizWithPrizesProps) {
+export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPrizesProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [selected, setSelected] = useState<string | null>(null)

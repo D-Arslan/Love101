@@ -7,7 +7,6 @@ import type { RdvDetails as RdvDetailsType } from "@/lib/types/database"
 interface RdvDetailsProps {
   rdv: RdvDetailsType
   primaryColor: string
-  secondaryColor: string
 }
 
 function formatDate(dateStr: string): string {
@@ -28,7 +27,7 @@ function formatTime(timeStr: string): string {
   return timeStr
 }
 
-export function RdvDetails({ rdv, primaryColor, secondaryColor }: RdvDetailsProps) {
+export function RdvDetails({ rdv, primaryColor }: RdvDetailsProps) {
   const items = [
     { icon: Calendar, label: "Date", value: formatDate(rdv.date) },
     { icon: Clock, label: "Heure", value: formatTime(rdv.time) },

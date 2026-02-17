@@ -13,10 +13,9 @@ interface QuizQuestionData {
 interface QuizProps {
   questions: QuizQuestionData[]
   primaryColor: string
-  secondaryColor: string
 }
 
-export function Quiz({ questions, primaryColor, secondaryColor }: QuizProps) {
+export function Quiz({ questions, primaryColor }: QuizProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [selected, setSelected] = useState<string | null>(null)

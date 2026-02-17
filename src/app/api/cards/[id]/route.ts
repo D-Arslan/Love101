@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { createClient } from "@/lib/supabase/server"
 import { createAdminClient } from "@/lib/supabase/admin"
+import { rateLimit } from "@/lib/rate-limit"
 
 interface RouteParams {
   params: Promise<{ id: string }>
@@ -8,6 +9,10 @@ interface RouteParams {
 
 export async function DELETE(request: Request, { params }: RouteParams) {
   try {
+    // 20 deletes per minute per IP
+    const limited = await rateLimit({ maxRequests: 20, windowMs: 60_000 })
+    if (limited) return limited
+
     const { id } = await params
 
     const supabase = await createClient()

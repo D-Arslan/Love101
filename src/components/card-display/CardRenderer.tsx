@@ -133,7 +133,6 @@ export function CardRenderer({ card }: CardRendererProps) {
           <RdvDetails
             rdv={config.rdv}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
@@ -171,7 +170,6 @@ export function CardRenderer({ card }: CardRendererProps) {
           <Promises
             promises={config.promises}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
@@ -180,7 +178,6 @@ export function CardRenderer({ card }: CardRendererProps) {
           <Reasons
             reasons={config.reasons}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
@@ -189,7 +186,6 @@ export function CardRenderer({ card }: CardRendererProps) {
           <Memories
             memories={config.memories}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
@@ -199,7 +195,6 @@ export function CardRenderer({ card }: CardRendererProps) {
             questions={config.quiz}
             prizes={config.quiz_prizes || []}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
@@ -208,7 +203,6 @@ export function CardRenderer({ card }: CardRendererProps) {
           <Quiz
             questions={config.quiz}
             primaryColor={colors.primary}
-            secondaryColor={colors.secondary}
           />
         )}
 
