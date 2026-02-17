@@ -114,4 +114,9 @@ src/
 - [x] Phase 3: Form + Supabase + Shareable links (MVP)
 - [x] Phase 4: Interactive features (envelope, countdown, reasons, promises, memories, quiz, quiz-prizes, scratch, sorry-algorithm, rdv-details, rdv-clues, music)
 - [x] Phase 5: Auth + Dashboard (email/password + Google OAuth, protected dashboard, card management, view tracking)
-- [ ] Phase 6: Polish + Deployment
+- [x] Phase 6: Polish (custom SVG logo, design tweaks, SEO sitemap, security headers)
+
+## Git Workflow
+- `main` — production branch (stable, deployable)
+- `dev` — development branch (work in progress)
+- Workflow: work on `dev`, merge into `main` when ready to deploy
