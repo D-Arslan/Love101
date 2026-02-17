@@ -22,6 +22,13 @@ export const metadata: Metadata = {
   },
   description:
     "Cree et partage des messages d'amour personnalises : Saint-Valentin, excuses, mots doux, anniversaire. Un lien unique, une surprise inoubliable.",
+  manifest: "/manifest.json",
+  themeColor: "#e11d48",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "default",
+    title: "Love101",
+  },
   openGraph: {
     title: "Love101 — Cree un message d'amour personnalise",
     description:
@@ -38,6 +45,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fr" suppressHydrationWarning>
+      <head>
+        <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+      </head>
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >
