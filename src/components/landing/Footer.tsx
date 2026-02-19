@@ -10,11 +10,8 @@ export async function Footer() {
     <footer className="bg-gray-50 border-t border-gray-100 relative">
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-rose-300 to-transparent" />
       <div className="max-w-5xl mx-auto px-6 py-12 text-center">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <Logo size="sm" />
-          <span className="font-serif text-xl font-bold text-gray-900">
-            {t("appName")}
-          </span>
+        <div className="flex items-center justify-center mb-3">
+          <Logo size="md" />
         </div>
         <p className="text-sm text-gray-500 mb-4">
           {t("tagline")}

@@ -18,9 +18,8 @@ export async function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-6xl mx-auto px-4 h-14 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 hover:opacity-80 transition-opacity">
-          <Logo size="sm" />
-          <span className="font-serif text-lg font-bold text-gray-900">{t("appName")}</span>
+        <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <Logo size="md" />
         </Link>
 
         <nav className="flex items-center gap-2">
