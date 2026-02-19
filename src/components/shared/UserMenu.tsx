@@ -1,9 +1,10 @@
 "use client"
 
+import { useState } from "react"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { createClient } from "@/lib/supabase/client"
-import { User, LayoutDashboard, LogOut } from "lucide-react"
+import { User, LayoutDashboard, LogOut, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import {
   DropdownMenu,
@@ -20,8 +21,10 @@ interface UserMenuProps {
 
 export function UserMenu({ email }: UserMenuProps) {
   const router = useRouter()
+  const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   async function handleLogout() {
+    setIsLoggingOut(true)
     const supabase = createClient()
     await supabase.auth.signOut()
     router.push("/")
@@ -47,9 +50,13 @@ export function UserMenu({ email }: UserMenuProps) {
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
-        <DropdownMenuItem onClick={handleLogout} variant="destructive">
-          <LogOut className="h-4 w-4 mr-2" />
-          Deconnexion
+        <DropdownMenuItem onClick={handleLogout} variant="destructive" disabled={isLoggingOut}>
+          {isLoggingOut ? (
+            <Loader2 className="h-4 w-4 mr-2 animate-spin" />
+          ) : (
+            <LogOut className="h-4 w-4 mr-2" />
+          )}
+          {isLoggingOut ? "Deconnexion..." : "Deconnexion"}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
