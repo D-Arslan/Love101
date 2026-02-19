@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Copy, Check, Share2, ArrowLeft, MessageCircle } from "lucide-react"
+import { Copy, Check, Share2, ArrowLeft, MessageCircle, Smartphone } from "lucide-react"
 import Link from "next/link"
 
 interface ShareBarProps {
@@ -23,6 +23,11 @@ export function ShareBar({ cardId, recipientName }: ShareBarProps) {
   function shareWhatsApp() {
     const text = `💌 J'ai un message spécial pour ${recipientName} : ${shareUrl}`
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, "_blank")
+  }
+
+  function shareSMS() {
+    const text = `💌 J'ai un message spécial pour toi : ${shareUrl}`
+    window.open(`sms:?body=${encodeURIComponent(text)}`, "_blank")
   }
 
   function shareNative() {
@@ -60,6 +65,14 @@ export function ShareBar({ cardId, recipientName }: ShareBarProps) {
           >
             <MessageCircle className="h-4 w-4" />
             <span className="hidden sm:inline">WhatsApp</span>
+          </button>
+
+          <button
+            onClick={shareSMS}
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-blue-50 text-blue-600 text-sm hover:bg-blue-100 transition-colors"
+          >
+            <Smartphone className="h-4 w-4" />
+            <span className="hidden sm:inline">SMS</span>
           </button>
 
           <button
