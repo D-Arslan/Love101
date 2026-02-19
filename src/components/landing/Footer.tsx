@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Heart } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
 
@@ -15,6 +16,11 @@ export function Footer() {
         <p className="text-sm text-gray-500 mb-4">
           Crée des messages personnalisés qui font craquer.
         </p>
+        <div className="flex items-center justify-center gap-4 mb-4 text-sm">
+          <Link href="/contact" className="text-gray-500 hover:text-rose-500 transition-colors">
+            Contact
+          </Link>
+        </div>
         <div className="flex items-center justify-center gap-1 text-xs text-gray-400">
           <span>Fait avec</span>
           <Heart className="h-3 w-3 text-rose-400 fill-rose-400" />
