@@ -17,6 +17,9 @@ export function Footer() {
           Crée des messages personnalisés qui font craquer.
         </p>
         <div className="flex items-center justify-center gap-4 mb-4 text-sm">
+          <Link href="/dates" className="text-gray-500 hover:text-rose-500 transition-colors">
+            Idees de Date
+          </Link>
           <Link href="/contact" className="text-gray-500 hover:text-rose-500 transition-colors">
             Contact
           </Link>
