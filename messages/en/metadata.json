@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Love101 — Create a personalized love message",
+      "description": "Create and share personalized love messages: Valentine's Day, apologies, love notes, anniversaries. One unique link, one unforgettable surprise.",
+      "ogTitle": "Love101 — Create a personalized love message",
+      "ogDescription": "One unique link, one unforgettable surprise. Create your personalized message."
+    },
+    "dashboard": {
+      "title": "Dashboard"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "dates": {
+      "title": "Date Ideas A-Z",
+      "description": "26 creative date ideas, one for every letter of the alphabet. Find inspiration for your next date!"
+    },
+    "login": {
+      "title": "Log in"
+    },
+    "signup": {
+      "title": "Sign up"
+    }
+  }
+}

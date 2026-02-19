@@ -1,0 +1,21 @@
+{
+  "contact": {
+    "title": "Contacte-nous",
+    "subtitle": "Une question, un bug ou une idee ? On est la pour toi.",
+    "reasons": {
+      "question": {
+        "title": "Question generale",
+        "description": "Une question sur Love101 ou son fonctionnement"
+      },
+      "bug": {
+        "title": "Signaler un bug",
+        "description": "Quelque chose ne fonctionne pas comme prevu"
+      },
+      "partnership": {
+        "title": "Partenariat",
+        "description": "Une idee de collaboration ou de partenariat"
+      }
+    },
+    "directEmail": "Ou ecris-nous directement a"
+  }
+}

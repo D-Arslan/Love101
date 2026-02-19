@@ -1,8 +1,5 @@
 import type { Metadata } from "next"
 import { Inter, Playfair_Display } from "next/font/google"
-import { Navbar } from "@/components/shared/Navbar"
-import { Providers } from "@/components/shared/Providers"
-import { Toaster } from "@/components/ui/sonner"
 import "./globals.css"
 
 const inter = Inter({
@@ -16,25 +13,11 @@ const playfair = Playfair_Display({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: "Love101 — Cree un message d'amour personnalise",
-    template: "%s | Love101",
-  },
-  description:
-    "Cree et partage des messages d'amour personnalises : Saint-Valentin, excuses, mots doux, anniversaire. Un lien unique, une surprise inoubliable.",
   manifest: "/manifest.json",
-  themeColor: "#e11d48",
   appleWebApp: {
     capable: true,
     statusBarStyle: "default",
     title: "Love101",
-  },
-  openGraph: {
-    title: "Love101 — Cree un message d'amour personnalise",
-    description:
-      "Un lien unique, une surprise inoubliable. Cree ton message personnalise.",
-    type: "website",
-    locale: "fr_FR",
   },
 }
 
@@ -51,11 +34,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased`}
       >
-        <Providers>
-          <Navbar />
-          {children}
-          <Toaster />
-        </Providers>
+        {children}
       </body>
     </html>
   )

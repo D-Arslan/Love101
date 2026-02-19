@@ -1,9 +1,10 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
+import { useTranslations } from "next-intl"
 import { templateList } from "@/templates"
 import { Sparkles } from "lucide-react"
+import { Link } from "@/i18n/navigation"
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -18,22 +19,11 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
 }
 
-const FEATURE_LABELS: Record<string, string> = {
-  envelope: "Enveloppe",
-  countdown: "Compte a rebours",
-  reasons: "Pourquoi je t'aime",
-  promises: "Mes promesses",
-  memories: "Nos souvenirs",
-  quiz: "Quiz",
-  "quiz-prizes": "Prix a gratter",
-  scratch: "Message cache",
-  music: "Musique",
-  "sorry-algorithm": "L'Algorithme du pardon",
-  "rdv-details": "Rendez-vous",
-  "rdv-clues": "Indices",
-}
-
 export function TemplateGrid() {
+  const t = useTranslations("landing.templateGrid")
+  const tLabels = useTranslations("landing.featureLabels")
+  const tTemplates = useTranslations("templates")
+
   return (
     <section id="templates" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
@@ -46,10 +36,10 @@ export function TemplateGrid() {
         >
           <div className="inline-flex items-center gap-2 bg-rose-50 text-rose-600 px-4 py-1.5 rounded-full text-sm font-medium mb-4">
             <Sparkles className="h-4 w-4" />
-            Choisis ton template
+            {t("badge")}
           </div>
           <h2 className="font-serif text-3xl sm:text-4xl font-bold text-gray-900">
-            Quelle occasion ?
+            {t("title")}
           </h2>
         </motion.div>
 
@@ -74,10 +64,10 @@ export function TemplateGrid() {
                 >
                   <div className="text-5xl mb-4">{template.emoji}</div>
                   <h3 className="font-semibold text-lg text-gray-900 mb-2">
-                    {template.name}
+                    {tTemplates(`${template.id}.name`)}
                   </h3>
                   <p className="text-sm text-gray-500 leading-relaxed mb-4">
-                    {template.description}
+                    {tTemplates(`${template.id}.description`)}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
                     {template.features
@@ -88,7 +78,7 @@ export function TemplateGrid() {
                           key={feature}
                           className="text-xs px-2 py-0.5 rounded-full bg-gray-100 text-gray-500"
                         >
-                          {FEATURE_LABELS[feature] || feature}
+                          {tLabels(feature)}
                         </span>
                       ))}
                   </div>

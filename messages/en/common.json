@@ -1,0 +1,36 @@
+{
+  "common": {
+    "nav": {
+      "login": "Log in",
+      "appName": "Love101"
+    },
+    "userMenu": {
+      "dashboard": "Dashboard",
+      "logout": "Log out",
+      "loggingOut": "Logging out..."
+    },
+    "footer": {
+      "tagline": "Create personalized messages that make hearts melt.",
+      "dateIdeas": "Date Ideas",
+      "contact": "Contact",
+      "madeWith": "Made with",
+      "appName": "Love101"
+    },
+    "share": {
+      "home": "Home",
+      "whatsapp": "WhatsApp",
+      "sms": "SMS",
+      "copied": "Copied!",
+      "copyLink": "Copy link",
+      "whatsappText": "💌 I have a special message for {recipientName}: {url}",
+      "smsText": "💌 I have a special message for you: {url}",
+      "nativeTitle": "A message for {recipientName}",
+      "nativeText": "💌 Check out this special message!"
+    },
+    "back": "Back",
+    "add": "Add",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "create": "Create"
+  }
+}

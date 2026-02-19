@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Love101 — Crea un mensaje de amor personalizado",
+      "description": "Crea y comparte mensajes de amor personalizados: San Valentin, disculpas, palabras de amor, aniversario. Un enlace unico, una sorpresa inolvidable.",
+      "ogTitle": "Love101 — Crea un mensaje de amor personalizado",
+      "ogDescription": "Un enlace unico, una sorpresa inolvidable. Crea tu mensaje personalizado."
+    },
+    "dashboard": {
+      "title": "Panel de control"
+    },
+    "contact": {
+      "title": "Contacto"
+    },
+    "dates": {
+      "title": "Ideas para citas A-Z",
+      "description": "26 ideas originales para citas romanticas, una por cada letra del abecedario. Encuentra la inspiracion para tu proxima cita!"
+    },
+    "login": {
+      "title": "Iniciar sesion"
+    },
+    "signup": {
+      "title": "Registro"
+    }
+  }
+}

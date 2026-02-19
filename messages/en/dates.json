@@ -1,0 +1,37 @@
+{
+  "dates": {
+    "title": "Date Ideas",
+    "titleHighlight": "A — Z",
+    "subtitle": "26 date ideas, one for every letter. Find inspiration and surprise your partner.",
+    "cta": "Found the perfect idea? Invite your partner with a personalized message.",
+    "ctaButton": "Create an invitation",
+    "ideas": {
+      "A": { "title": "At-home cooking class", "description": "Make a meal together: sushi, homemade pizza, or pastries. The laughs matter more than the result." },
+      "B": { "title": "Beach or sunset walk", "description": "Find a beautiful viewpoint, bring a blanket, and watch the sky together." },
+      "C": { "title": "Cinema under the stars", "description": "Set up a white sheet, a projector, some cushions, and popcorn. Your very own private theater." },
+      "D": { "title": "Blind tasting date", "description": "Blindfold each other and guess chocolates, cheeses, or wines. Loser does the dishes." },
+      "E": { "title": "Escape room", "description": "Test your teamwork by solving puzzles together. Nothing brings a couple closer." },
+      "F": { "title": "Fun fair adventure", "description": "Cotton candy, Ferris wheel, and winning stuffed animals. Rediscover your inner child." },
+      "G": { "title": "Game night", "description": "Board games, co-op video games, or a card battle. A little friendly competition brings you closer." },
+      "H": { "title": "Hotel staycation", "description": "Book a surprise hotel in your own city and play tourist for a night." },
+      "I": { "title": "Improv night", "description": "Take an improv class together or make up scenes at home. Guaranteed laughs." },
+      "J": { "title": "Japanese garden or botanical stroll", "description": "Wander among the flowers, take in the scents, and snap beautiful photos together." },
+      "K": { "title": "Karaoke session", "description": "Rent a private room and sing your favorite songs without holding back. Duets are a must." },
+      "L": { "title": "Love letter exchange", "description": "Write each other a letter and read it out loud. Intimate and unforgettable." },
+      "M": { "title": "Midnight market stroll", "description": "Explore a night market, sample street food from around the world, and wander hand in hand." },
+      "N": { "title": "Night under the stars", "description": "Grab some blankets, find a quiet spot, and stargaze together." },
+      "O": { "title": "Origami for two", "description": "Follow tutorials and create cranes, hearts, or paper flowers. Gift each other your creations." },
+      "P": { "title": "Picnic in the park", "description": "Pack a basket with your favorite foods, a nice bottle, and find the perfect spot." },
+      "Q": { "title": "Quiz about your relationship", "description": "Test how well you know each other with questions about your tastes, memories, and dreams." },
+      "R": { "title": "Random road trip", "description": "Get in the car with no destination. Stop wherever catches your eye. The adventure begins." },
+      "S": { "title": "Spa night at home", "description": "Candles, soft music, face masks, massages. Turn your bathroom into a wellness retreat." },
+      "T": { "title": "Thrift shopping challenge", "description": "Hit up thrift stores and pick out a complete outfit for each other. Fashion challenge accepted." },
+      "U": { "title": "Unplugged live music", "description": "Discover a local artist at a bar or small venue. Live music has a charm all its own." },
+      "V": { "title": "Visit a museum", "description": "Pick an exhibit that intrigues you both and discuss your impressions over coffee afterward." },
+      "W": { "title": "Weekend phone detox", "description": "Disconnect for 48 hours and focus entirely on each other. A digital detox for two." },
+      "X": { "title": "eXtreme new experience", "description": "Skydiving, pottery class, float tank... Pick something neither of you has ever done." },
+      "Y": { "title": "Yoga for two", "description": "Try partner yoga with synchronized poses. Balance, trust, and connection." },
+      "Z": { "title": "Zoo or aquarium outing", "description": "Marvel at the animals like kids again. Each of you picks a favorite animal." }
+    }
+  }
+}

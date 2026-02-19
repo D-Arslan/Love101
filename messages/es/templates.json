@@ -1,0 +1,58 @@
+{
+  "templates": {
+    "valentine": {
+      "name": "San Valentin",
+      "description": "Una invitacion: Quieres ser mi valentin/a?",
+      "placeholder": {
+        "message": "Quieres ser mi valentin/a? Te espero con muchas ganas para pasar la mejor noche juntos...",
+        "senderName": "Tu valentin/a",
+        "recipientName": "Mi valentin/a"
+      }
+    },
+    "apology": {
+      "name": "Pedir perdon",
+      "description": "Un algoritmo de suplica interactivo e irresistible",
+      "placeholder": {
+        "message": "Se que cometi un error y me arrepiento. Significas muchisimo para mi y hare todo lo posible para compensarte...",
+        "senderName": "Quien lo lamenta",
+        "recipientName": "A quien lastime"
+      }
+    },
+    "love-letter": {
+      "name": "Palabras de amor",
+      "description": "Por que te amo: una carta con un mensaje oculto",
+      "placeholder": {
+        "message": "Cada dia a tu lado es un regalo. Iluminas mi vida de una manera que las palabras no pueden describir...",
+        "senderName": "Con todo mi amor",
+        "recipientName": "Mi tesoro"
+      }
+    },
+    "anniversary": {
+      "name": "Aniversario",
+      "description": "Nuestros mejores recuerdos, un quiz y un contador de dias juntos",
+      "placeholder": {
+        "message": "X anos/meses juntos y cada dia te quiero un poco mas. Gracias por ser la persona extraordinaria que eres...",
+        "senderName": "Tu media naranja",
+        "recipientName": "Mi pareja"
+      }
+    },
+    "quiz-game": {
+      "name": "Me conoces?",
+      "description": "Un quiz sobre tu relacion con premios para raspar segun la puntuacion",
+      "placeholder": {
+        "message": "Crees que me conoces bien? Demuestralo! Responde estas preguntas y descubre tu recompensa...",
+        "senderName": "Tu amor",
+        "recipientName": "Mi corazon"
+      }
+    },
+    "rdv": {
+      "name": "Punto de encuentro",
+      "description": "Organiza un encuentro misterioso con pistas",
+      "placeholder": {
+        "message": "Tengo una sorpresa para ti... Sigue las pistas y encuentrame en el punto de encuentro!",
+        "senderName": "Tu misterioso/a",
+        "recipientName": "Mi aventurero/a"
+      }
+    }
+  }
+}

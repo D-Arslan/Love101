@@ -1,0 +1,26 @@
+{
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Manage your personalized messages",
+    "stats": {
+      "messagesCreated": "Messages created",
+      "totalViews": "Total views"
+    },
+    "cardList": {
+      "empty": "No messages yet",
+      "emptyDescription": "Create your first personalized message!",
+      "createMessage": "Create a message",
+      "myMessages": "My messages",
+      "new": "New",
+      "forRecipient": "For {name}"
+    },
+    "deleteCard": {
+      "title": "Delete this message?",
+      "description": "The message for <strong>{name}</strong> will be permanently deleted. This action cannot be undone.",
+      "cancel": "Cancel",
+      "delete": "Delete",
+      "successToast": "Card deleted",
+      "errorToast": "Error deleting the card"
+    }
+  }
+}

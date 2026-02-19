@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "hero": {
+      "title": "Cree un message",
+      "titleHighlight": "inoubliable",
+      "subtitle": "Saint-Valentin, excuses, mots doux, anniversaire... Personnalise, partage un lien, et fais craquer ton/ta partenaire.",
+      "cta": "Commencer"
+    },
+    "howItWorks": {
+      "title": "Comment ça marche ?",
+      "subtitle": "En 3 étapes simples, c'est prêt.",
+      "step1Title": "Choisis",
+      "step1Description": "Sélectionne un template selon l'occasion.",
+      "step2Title": "Personnalise",
+      "step2Description": "Ajoute ton message, tes couleurs et des surprises.",
+      "step3Title": "Partage",
+      "step3Description": "Envoie le lien unique à ton/ta partenaire."
+    },
+    "templateGrid": {
+      "badge": "Choisis ton template",
+      "title": "Quelle occasion ?"
+    },
+    "featureLabels": {
+      "envelope": "Enveloppe",
+      "countdown": "Compte a rebours",
+      "reasons": "Pourquoi je t'aime",
+      "promises": "Mes promesses",
+      "memories": "Nos souvenirs",
+      "quiz": "Quiz",
+      "quiz-prizes": "Prix a gratter",
+      "scratch": "Message cache",
+      "music": "Musique",
+      "sorry-algorithm": "L'Algorithme du pardon",
+      "rdv-details": "Rendez-vous",
+      "rdv-clues": "Indices"
+    }
+  }
+}

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link"
+import { useLocale, useTranslations } from "next-intl"
 import { createClient } from "@/lib/supabase/client"
 import { signupSchema } from "@/lib/validators/auth"
 import { toast } from "sonner"
@@ -12,9 +12,12 @@ import { Label } from "@/components/ui/label"
 import { Loader2, UserPlus } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
 import { Separator } from "@/components/ui/separator"
+import { Link } from "@/i18n/navigation"
 
 export function SignupForm() {
   const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations("auth.signup")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
@@ -39,7 +42,7 @@ export function SignupForm() {
       email,
       password,
       options: {
-        emailRedirectTo: `${window.location.origin}/auth/callback`,
+        emailRedirectTo: `${window.location.origin}/${locale}/auth/callback`,
       },
     })
 
@@ -49,8 +52,8 @@ export function SignupForm() {
       return
     }
 
-    toast.success("Compte cree ! Verifie ta boite mail pour confirmer ton adresse.")
-    router.push("/auth/login")
+    toast.success(t("successToast"))
+    router.push(`/${locale}/auth/login`)
   }
 
   async function handleGoogleSignup() {
@@ -58,7 +61,7 @@ export function SignupForm() {
     const supabase = createClient()
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
+      options: { redirectTo: `${window.location.origin}/${locale}/auth/callback` },
     })
   }
 
@@ -68,8 +71,8 @@ export function SignupForm() {
         <div className="flex justify-center mb-1">
           <Logo size="lg" />
         </div>
-        <h1 className="font-serif text-2xl font-bold text-gray-900">Creer un compte</h1>
-        <p className="text-sm text-gray-500 mt-1">Inscris-toi pour sauvegarder tes messages</p>
+        <h1 className="font-serif text-2xl font-bold text-gray-900">{t("title")}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t("subtitle")}</p>
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 space-y-4">
@@ -102,23 +105,23 @@ export function SignupForm() {
               />
             </svg>
           )}
-          Continuer avec Google
+          {t("googleButton")}
         </Button>
 
         <div className="relative">
           <Separator />
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-xs text-gray-400">
-            ou
+            {t("or")}
           </span>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <div className="space-y-1.5">
-            <Label htmlFor="email">E-mail</Label>
+            <Label htmlFor="email">{t("emailLabel")}</Label>
             <Input
               id="email"
               type="email"
-              placeholder="ton@email.com"
+              placeholder={t("emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -126,11 +129,11 @@ export function SignupForm() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="password">Mot de passe</Label>
+            <Label htmlFor="password">{t("passwordLabel")}</Label>
             <Input
               id="password"
               type="password"
-              placeholder="Au moins 6 caracteres"
+              placeholder={t("passwordPlaceholder")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -138,11 +141,11 @@ export function SignupForm() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="confirmPassword">Confirmer le mot de passe</Label>
+            <Label htmlFor="confirmPassword">{t("confirmPasswordLabel")}</Label>
             <Input
               id="confirmPassword"
               type="password"
-              placeholder="••••••"
+              placeholder={t("confirmPasswordPlaceholder")}
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               required
@@ -161,15 +164,15 @@ export function SignupForm() {
             ) : (
               <UserPlus className="h-4 w-4 mr-2" />
             )}
-            Creer mon compte
+            {t("submit")}
           </Button>
         </form>
       </div>
 
       <p className="text-center text-sm text-gray-500">
-        Deja un compte ?{" "}
+        {t("hasAccount")}{" "}
         <Link href="/auth/login" className="text-rose-600 hover:underline font-medium">
-          Se connecter
+          {t("loginLink")}
         </Link>
       </p>
     </div>

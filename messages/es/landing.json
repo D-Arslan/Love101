@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "hero": {
+      "title": "Crea un mensaje",
+      "titleHighlight": "inolvidable",
+      "subtitle": "San Valentin, disculpas, palabras de amor, aniversario... Personaliza, comparte un enlace y enamora a tu pareja.",
+      "cta": "Comenzar"
+    },
+    "howItWorks": {
+      "title": "Como funciona?",
+      "subtitle": "En 3 sencillos pasos, listo.",
+      "step1Title": "Elige",
+      "step1Description": "Selecciona una plantilla segun la ocasion.",
+      "step2Title": "Personaliza",
+      "step2Description": "Agrega tu mensaje, tus colores y sorpresas.",
+      "step3Title": "Comparte",
+      "step3Description": "Envia el enlace unico a tu pareja."
+    },
+    "templateGrid": {
+      "badge": "Elige tu plantilla",
+      "title": "Cual es la ocasion?"
+    },
+    "featureLabels": {
+      "envelope": "Sobre",
+      "countdown": "Cuenta regresiva",
+      "reasons": "Por que te amo",
+      "promises": "Mis promesas",
+      "memories": "Nuestros recuerdos",
+      "quiz": "Quiz",
+      "quiz-prizes": "Premios para raspar",
+      "scratch": "Mensaje oculto",
+      "music": "Musica",
+      "sorry-algorithm": "El Algoritmo del perdon",
+      "rdv-details": "Punto de encuentro",
+      "rdv-clues": "Pistas"
+    }
+  }
+}

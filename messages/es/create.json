@@ -1,0 +1,98 @@
+{
+  "create": {
+    "recipientLabel": "Para quien? (ej: {placeholder})",
+    "senderLabel": "De parte de? (ej: {placeholder})",
+    "messageLabel": "Tu mensaje",
+    "colorsLabel": "Colores",
+    "colorPrimary": "Principal",
+    "colorSecondary": "Secundario",
+    "colorBackground": "Fondo",
+    "colorText": "Texto",
+    "featuresTitle": "Funciones interactivas",
+    "rdv": {
+      "title": "Detalles del encuentro",
+      "date": "Fecha",
+      "time": "Hora",
+      "location": "Lugar",
+      "locationPlaceholder": "Restaurante El Romantico, Madrid...",
+      "theme": "Tema (opcional)",
+      "themePlaceholder": "Noche elegante, picnic, cine..."
+    },
+    "clues": {
+      "title": "Pistas ({count}/5)",
+      "description": "Pistas que tu pareja tendra que descubrir una por una",
+      "placeholder": "Pista #{number}",
+      "add": "Agregar una pista"
+    },
+    "countdown": {
+      "anniversary": "Fecha de su aniversario",
+      "withRdv": "Cuenta regresiva (completada automaticamente desde el encuentro)",
+      "default": "Cuenta regresiva",
+      "anniversaryHint": "La fecha desde la que estan juntos — un contador mostrara el tiempo transcurrido",
+      "defaultHint": "Opcional — se mostrara un temporizador en la tarjeta"
+    },
+    "reasons": {
+      "title": "Por que te amo ({count}/10)",
+      "placeholder": "Razon #{number}",
+      "add": "Agregar"
+    },
+    "promises": {
+      "title": "Mis promesas ({count}/10)",
+      "placeholder": "Promesa #{number}",
+      "add": "Agregar una promesa"
+    },
+    "sorry": {
+      "messagesTitle": "Tus frases de suplica ({count}/20)",
+      "messagesDescription": "Personaliza los mensajes que apareceran cuando supliques. Deja vacio para usar las frases por defecto.",
+      "messagePlaceholder": "Mensaje #{number} — ej: Por favor, perdoname...",
+      "addMessage": "Agregar un mensaje",
+      "refusalsTitle": "Reacciones cuando dice que no ({count}/13)",
+      "refusalsDescription": "Lo que aparece cuando la persona hace clic en \"No\". Deja vacio para las reacciones por defecto.",
+      "refusalPlaceholder": "Reaccion #{number} — ej: No?! Pero... de todas formas!",
+      "addRefusal": "Agregar una reaccion"
+    },
+    "memories": {
+      "title": "Nuestros mejores recuerdos ({count}/10)",
+      "placeholder": "Recuerdo #{number}",
+      "add": "Agregar un recuerdo"
+    },
+    "quiz": {
+      "title": "Quiz ({count}/5 preguntas)",
+      "question": "Pregunta {number}",
+      "questionPlaceholder": "Tu pregunta...",
+      "optionPlaceholder": "Opcion {number}",
+      "correctAnswer": "Respuesta correcta (debe coincidir con una opcion)",
+      "addQuestion": "Agregar una pregunta"
+    },
+    "prizes": {
+      "title": "Premios para raspar ({count}/5)",
+      "description": "Define recompensas segun la puntuacion obtenida en el quiz",
+      "prize": "Premio {number}",
+      "scoreMin": "Puntuacion min",
+      "textPlaceholder": "Masaje, beso, pastel de chocolate...",
+      "add": "Agregar un premio"
+    },
+    "scratch": {
+      "title": "Mensaje para raspar",
+      "placeholder": "El mensaje oculto por descubrir..."
+    },
+    "music": {
+      "title": "Musica de fondo",
+      "enable": "Activar la musica",
+      "urlPlaceholder": "URL del archivo de audio (mp3, wav...)",
+      "hint": "Pega un enlace directo a un archivo de audio (.mp3)"
+    },
+    "error": {
+      "generic": "Ha ocurrido un error",
+      "network": "No se puede contactar al servidor"
+    },
+    "submit": {
+      "creating": "Creando...",
+      "create": "Crear el mensaje"
+    },
+    "preview": {
+      "title": "Vista previa",
+      "forRecipient": "Para {name}"
+    }
+  }
+}

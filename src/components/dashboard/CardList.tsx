@@ -1,8 +1,10 @@
 "use client"
 
-import Link from "next/link"
+import NextLink from "next/link"
 import { motion } from "framer-motion"
 import { Eye, ExternalLink, Plus } from "lucide-react"
+import { useLocale, useTranslations } from "next-intl"
+import { Link } from "@/i18n/navigation"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { DeleteCardButton } from "./DeleteCardButton"
@@ -23,29 +25,33 @@ interface CardListProps {
   cards: DashboardCard[]
 }
 
-function formatDate(dateStr: string) {
-  return new Date(dateStr).toLocaleDateString("fr-FR", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  })
-}
-
 export function CardList({ cards }: CardListProps) {
+  const locale = useLocale()
+  const t = useTranslations("dashboard.cardList")
+  const tTemplates = useTranslations("templates")
+
+  function formatDate(dateStr: string) {
+    return new Date(dateStr).toLocaleDateString(locale, {
+      day: "numeric",
+      month: "short",
+      year: "numeric",
+    })
+  }
+
   if (cards.length === 0) {
     return (
       <div className="text-center py-16">
         <span className="text-5xl block mb-4">💌</span>
         <h3 className="font-serif text-xl font-bold text-gray-900 mb-2">
-          Aucun message pour l&apos;instant
+          {t("empty")}
         </h3>
         <p className="text-sm text-gray-500 mb-6">
-          Cree ton premier message personnalise !
+          {t("emptyDescription")}
         </p>
         <Link href="/#templates">
           <Button>
             <Plus className="h-4 w-4 mr-2" />
-            Creer un message
+            {t("createMessage")}
           </Button>
         </Link>
       </div>
@@ -55,17 +61,20 @@ export function CardList({ cards }: CardListProps) {
   return (
     <div className="space-y-3">
       <div className="flex items-center justify-between mb-4">
-        <h2 className="font-medium text-gray-700">Mes messages</h2>
+        <h2 className="font-medium text-gray-700">{t("myMessages")}</h2>
         <Link href="/#templates">
           <Button variant="outline" size="sm">
             <Plus className="h-4 w-4 mr-1.5" />
-            Nouveau
+            {t("new")}
           </Button>
         </Link>
       </div>
 
       {cards.map((card, i) => {
         const template = templates[card.template_type as TemplateType]
+        const templateName = template
+          ? tTemplates(`${card.template_type}.name`)
+          : card.template_type
         return (
           <motion.div
             key={card.id}
@@ -79,10 +88,10 @@ export function CardList({ cards }: CardListProps) {
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-2 mb-0.5">
                 <p className="font-medium text-gray-900 truncate">
-                  Pour {card.recipient_name}
+                  {t("forRecipient", { name: card.recipient_name })}
                 </p>
                 <Badge variant="secondary" className="text-[10px] shrink-0">
-                  {template?.name ?? card.template_type}
+                  {templateName}
                 </Badge>
               </div>
               <p className="text-xs text-gray-400">
@@ -95,11 +104,11 @@ export function CardList({ cards }: CardListProps) {
               {card.view_count}
             </div>
 
-            <Link href={`/l/${card.id}`} target="_blank">
+            <NextLink href={`/l/${card.id}`} target="_blank">
               <Button variant="ghost" size="icon" className="h-8 w-8">
                 <ExternalLink className="h-4 w-4 text-gray-400" />
               </Button>
-            </Link>
+            </NextLink>
 
             <DeleteCardButton cardId={card.id} recipientName={card.recipient_name} />
           </motion.div>

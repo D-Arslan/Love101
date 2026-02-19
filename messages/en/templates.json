@@ -1,0 +1,58 @@
+{
+  "templates": {
+    "valentine": {
+      "name": "Valentine's Day",
+      "description": "An invitation: Will you be my Valentine?",
+      "placeholder": {
+        "message": "Will you be my Valentine? I can't wait to spend the most wonderful evening together...",
+        "senderName": "Your Valentine",
+        "recipientName": "My Valentine"
+      }
+    },
+    "apology": {
+      "name": "Apology",
+      "description": "An interactive and irresistible pleading algorithm",
+      "placeholder": {
+        "message": "I know I messed up and I'm so sorry. You mean the world to me and I'll do whatever it takes to make it right...",
+        "senderName": "The one who's sorry",
+        "recipientName": "The one I hurt"
+      }
+    },
+    "love-letter": {
+      "name": "Love letter",
+      "description": "Why I love you: a letter with a hidden message",
+      "placeholder": {
+        "message": "Every day with you is a gift. You light up my life in ways that words can't describe...",
+        "senderName": "With all my love",
+        "recipientName": "My darling"
+      }
+    },
+    "anniversary": {
+      "name": "Anniversary",
+      "description": "Our best memories, a quiz, and a day counter",
+      "placeholder": {
+        "message": "X years/months together and I love you more every day. Thank you for being the amazing person you are...",
+        "senderName": "Your other half",
+        "recipientName": "My partner"
+      }
+    },
+    "quiz-game": {
+      "name": "How well do you know me?",
+      "description": "A couples quiz with scratch-off prizes based on the score",
+      "placeholder": {
+        "message": "Think you know me well? Prove it! Answer these questions and discover your reward...",
+        "senderName": "Your sweetheart",
+        "recipientName": "My love"
+      }
+    },
+    "rdv": {
+      "name": "Mystery date",
+      "description": "Set up a mysterious rendezvous with clues",
+      "placeholder": {
+        "message": "I have a surprise for you... Follow the clues and meet me at the rendezvous!",
+        "senderName": "Your mystery date",
+        "recipientName": "My adventurer"
+      }
+    }
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "common": {
+    "nav": {
+      "login": "Iniciar sesion",
+      "appName": "Love101"
+    },
+    "userMenu": {
+      "dashboard": "Panel de control",
+      "logout": "Cerrar sesion",
+      "loggingOut": "Cerrando sesion..."
+    },
+    "footer": {
+      "tagline": "Crea mensajes personalizados que enamoran.",
+      "dateIdeas": "Ideas para citas",
+      "contact": "Contacto",
+      "madeWith": "Hecho con",
+      "appName": "Love101"
+    },
+    "share": {
+      "home": "Inicio",
+      "whatsapp": "WhatsApp",
+      "sms": "SMS",
+      "copied": "Copiado!",
+      "copyLink": "Copiar enlace",
+      "whatsappText": "💌 Tengo un mensaje especial para {recipientName}: {url}",
+      "smsText": "💌 Tengo un mensaje especial para ti: {url}",
+      "nativeTitle": "Un mensaje para {recipientName}",
+      "nativeText": "💌 Descubre este mensaje especial!"
+    },
+    "back": "Volver",
+    "add": "Agregar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "create": "Crear"
+  }
+}

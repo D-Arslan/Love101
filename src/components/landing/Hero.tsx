@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { Heart, ArrowDown } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { Button } from "@/components/ui/button"
 import { Logo } from "@/components/shared/Logo"
 
@@ -20,6 +21,8 @@ const floatingHearts = Array.from({ length: 12 }, (_, i) => ({
 }))
 
 export function Hero() {
+  const t = useTranslations("landing.hero")
+
   function scrollToTemplates() {
     document
       .getElementById("templates")
@@ -69,9 +72,9 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight text-gray-900 mb-6"
         >
-          Cree un message{" "}
+          {t("title")}{" "}
           <span className="bg-gradient-to-r from-rose-500 to-purple-600 bg-clip-text text-transparent">
-            inoubliable
+            {t("titleHighlight")}
           </span>
         </motion.h1>
 
@@ -81,8 +84,7 @@ export function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-lg sm:text-xl text-gray-600 mb-10 max-w-xl mx-auto"
         >
-          Saint-Valentin, excuses, mots doux, anniversaire...
-          Personnalise, partage un lien, et fais craquer ton/ta partenaire.
+          {t("subtitle")}
         </motion.p>
 
         <motion.div
@@ -95,7 +97,7 @@ export function Hero() {
             size="lg"
             className="bg-gradient-to-r from-rose-500 to-purple-600 hover:from-rose-600 hover:to-purple-700 text-white text-lg px-8 py-6 rounded-full shadow-lg hover:shadow-xl transition-all cursor-pointer"
           >
-            Commencer
+            {t("cta")}
             <ArrowDown className="ml-2 h-5 w-5 animate-bounce" />
           </Button>
         </motion.div>

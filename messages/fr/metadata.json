@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "home": {
+      "title": "Love101 — Cree un message d'amour personnalise",
+      "description": "Cree et partage des messages d'amour personnalises : Saint-Valentin, excuses, mots doux, anniversaire. Un lien unique, une surprise inoubliable.",
+      "ogTitle": "Love101 — Cree un message d'amour personnalise",
+      "ogDescription": "Un lien unique, une surprise inoubliable. Cree ton message personnalise."
+    },
+    "dashboard": {
+      "title": "Tableau de bord"
+    },
+    "contact": {
+      "title": "Contact"
+    },
+    "dates": {
+      "title": "Idees de Date A-Z",
+      "description": "26 idees de rendez-vous amoureux originaux, une pour chaque lettre de l'alphabet. Trouve l'inspiration pour ton prochain date !"
+    },
+    "login": {
+      "title": "Connexion"
+    },
+    "signup": {
+      "title": "Inscription"
+    }
+  }
+}

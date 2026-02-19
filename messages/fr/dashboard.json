@@ -1,0 +1,26 @@
+{
+  "dashboard": {
+    "title": "Tableau de bord",
+    "subtitle": "Gere tes messages personnalises",
+    "stats": {
+      "messagesCreated": "Messages crees",
+      "totalViews": "Vues totales"
+    },
+    "cardList": {
+      "empty": "Aucun message pour l'instant",
+      "emptyDescription": "Cree ton premier message personnalise !",
+      "createMessage": "Creer un message",
+      "myMessages": "Mes messages",
+      "new": "Nouveau",
+      "forRecipient": "Pour {name}"
+    },
+    "deleteCard": {
+      "title": "Supprimer ce message ?",
+      "description": "Le message pour <strong>{name}</strong> sera supprime definitivement. Cette action est irreversible.",
+      "cancel": "Annuler",
+      "delete": "Supprimer",
+      "successToast": "Carte supprimee",
+      "errorToast": "Erreur lors de la suppression"
+    }
+  }
+}

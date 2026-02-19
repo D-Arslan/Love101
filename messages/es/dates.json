@@ -1,0 +1,37 @@
+{
+  "dates": {
+    "title": "Ideas para citas",
+    "titleHighlight": "A — Z",
+    "subtitle": "26 ideas para citas, una por cada letra. Encuentra la inspiracion y sorprende a tu pareja.",
+    "cta": "Encontraste la idea perfecta? Invita a tu pareja con un mensaje personalizado.",
+    "ctaButton": "Crear una invitacion",
+    "ideas": {
+      "A": { "title": "Atardecer romantico", "description": "Busquen un lugar con buena vista, lleven una manta y disfruten juntos del cielo al caer la tarde." },
+      "B": { "title": "Brunch sorpresa", "description": "Preparen juntos un brunch especial con sus platos favoritos. Panqueques, fruta y cafe recien hecho." },
+      "C": { "title": "Cine en casa", "description": "Monten una sabana, un proyector, cojines y palomitas. Su propio cine privado." },
+      "D": { "title": "Degustacion a ciegas", "description": "Vendense los ojos y adivinen chocolates, quesos o vinos. Quien pierda lava los platos." },
+      "E": { "title": "Escape room", "description": "Pongan a prueba su complicidad resolviendo enigmas juntos. Nada mejor para fortalecer el equipo." },
+      "F": { "title": "Feria o parque de diversiones", "description": "Algodon de azucar, rueda de la fortuna y peluches ganados. Recuperen su lado mas infantil." },
+      "G": { "title": "Game night", "description": "Juegos de mesa, videojuegos en pareja o batalla de cartas. La competencia sana une." },
+      "H": { "title": "Hotel sorpresa", "description": "Reserven un hotel inesperado en su ciudad y jueguen a ser turistas por una noche." },
+      "I": { "title": "Improvisacion", "description": "Tomen una clase de impro juntos o inventen escenas en casa. Risas aseguradas." },
+      "J": { "title": "Jardin botanico", "description": "Paseen entre las flores, respiren los aromas y tomense fotos bonitas juntos." },
+      "K": { "title": "Karaoke", "description": "Renten una sala privada y canten sus canciones favoritas sin pena. Duetos obligatorios." },
+      "L": { "title": "Carta de amor", "description": "Escribanse una carta cada uno y leanla en voz alta. Intimo e inolvidable." },
+      "M": { "title": "Mercado nocturno", "description": "Exploren un mercado de noche, prueben comida de todo el mundo y paseen de la mano." },
+      "N": { "title": "Noche bajo las estrellas", "description": "Lleven mantas, busquen un lugar tranquilo y observen las estrellas juntos." },
+      "O": { "title": "Origami en pareja", "description": "Sigan tutoriales y creen grullas, corazones o flores de papel. Regalense sus creaciones." },
+      "P": { "title": "Picnic gourmet", "description": "Preparen una canasta con sus platos favoritos, una buena botella y encuentren el lugar perfecto." },
+      "Q": { "title": "Quiz sobre su relacion", "description": "Pongan a prueba cuanto se conocen con preguntas sobre sus gustos, recuerdos y suenos." },
+      "R": { "title": "Road trip espontaneo", "description": "Subanse al auto sin destino fijo. Parense donde les guste. La aventura comienza." },
+      "S": { "title": "Spa en casa", "description": "Velas, musica suave, mascarillas, masajes. Transformen su bano en un spa de lujo." },
+      "T": { "title": "Tiendas de segunda mano", "description": "Vayan a tiendas vintage y elijanse mutuamente un outfit completo. Reto de moda." },
+      "U": { "title": "Un concierto en vivo", "description": "Descubran a un artista local en un bar o sala pequena. La musica en vivo tiene un encanto unico." },
+      "V": { "title": "Visita a un museo", "description": "Elijan una exposicion que les intrigue y comenten sus impresiones tomando un cafe despues." },
+      "W": { "title": "Weekend sin celular", "description": "Desconectense 48 horas y concentrense el uno en el otro. Detox digital en pareja." },
+      "X": { "title": "eXperiencia insolita", "description": "Paracaidismo, clase de ceramica, flotario... Elijan algo que ninguno de los dos haya hecho." },
+      "Y": { "title": "Yoga en pareja", "description": "Prueben el yoga de a dos con posturas sincronizadas. Equilibrio, confianza y conexion." },
+      "Z": { "title": "Zoologico o acuario", "description": "Maravillense con los animales como si fueran ninos. Cada uno elija su animal favorito." }
+    }
+  }
+}

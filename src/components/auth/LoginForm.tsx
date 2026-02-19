@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link"
+import { useLocale, useTranslations } from "next-intl"
 import { createClient } from "@/lib/supabase/client"
 import { loginSchema } from "@/lib/validators/auth"
 import { toast } from "sonner"
@@ -12,9 +12,12 @@ import { Label } from "@/components/ui/label"
 import { Loader2, LogIn } from "lucide-react"
 import { Logo } from "@/components/shared/Logo"
 import { Separator } from "@/components/ui/separator"
+import { Link } from "@/i18n/navigation"
 
 export function LoginForm() {
   const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations("auth.login")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -40,13 +43,13 @@ export function LoginForm() {
     })
 
     if (authError) {
-      setError("E-mail ou mot de passe incorrect")
+      setError(t("errorInvalid"))
       setIsSubmitting(false)
       return
     }
 
-    toast.success("Connecte avec succes !")
-    router.push("/dashboard")
+    toast.success(t("successToast"))
+    router.push(`/${locale}/dashboard`)
     router.refresh()
   }
 
@@ -55,7 +58,7 @@ export function LoginForm() {
     const supabase = createClient()
     await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/auth/callback` },
+      options: { redirectTo: `${window.location.origin}/${locale}/auth/callback` },
     })
   }
 
@@ -65,8 +68,8 @@ export function LoginForm() {
         <div className="flex justify-center mb-1">
           <Logo size="lg" />
         </div>
-        <h1 className="font-serif text-2xl font-bold text-gray-900">Connexion</h1>
-        <p className="text-sm text-gray-500 mt-1">Connecte-toi pour gerer tes messages</p>
+        <h1 className="font-serif text-2xl font-bold text-gray-900">{t("title")}</h1>
+        <p className="text-sm text-gray-500 mt-1">{t("subtitle")}</p>
       </div>
 
       <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 space-y-4">
@@ -99,23 +102,23 @@ export function LoginForm() {
               />
             </svg>
           )}
-          Continuer avec Google
+          {t("googleButton")}
         </Button>
 
         <div className="relative">
           <Separator />
           <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 bg-white px-2 text-xs text-gray-400">
-            ou
+            {t("or")}
           </span>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-3">
           <div className="space-y-1.5">
-            <Label htmlFor="email">E-mail</Label>
+            <Label htmlFor="email">{t("emailLabel")}</Label>
             <Input
               id="email"
               type="email"
-              placeholder="ton@email.com"
+              placeholder={t("emailPlaceholder")}
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
@@ -123,11 +126,11 @@ export function LoginForm() {
           </div>
 
           <div className="space-y-1.5">
-            <Label htmlFor="password">Mot de passe</Label>
+            <Label htmlFor="password">{t("passwordLabel")}</Label>
             <Input
               id="password"
               type="password"
-              placeholder="••••••"
+              placeholder={t("passwordPlaceholder")}
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
@@ -146,15 +149,15 @@ export function LoginForm() {
             ) : (
               <LogIn className="h-4 w-4 mr-2" />
             )}
-            Se connecter
+            {t("submit")}
           </Button>
         </form>
       </div>
 
       <p className="text-center text-sm text-gray-500">
-        Pas encore de compte ?{" "}
+        {t("noAccount")}{" "}
         <Link href="/auth/signup" className="text-rose-600 hover:underline font-medium">
-          Creer un compte
+          {t("signupLink")}
         </Link>
       </p>
     </div>

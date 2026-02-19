@@ -1,0 +1,98 @@
+{
+  "create": {
+    "recipientLabel": "Who is it for? (e.g. {placeholder})",
+    "senderLabel": "Who is it from? (e.g. {placeholder})",
+    "messageLabel": "Your message",
+    "colorsLabel": "Colors",
+    "colorPrimary": "Primary",
+    "colorSecondary": "Secondary",
+    "colorBackground": "Background",
+    "colorText": "Text",
+    "featuresTitle": "Interactive features",
+    "rdv": {
+      "title": "Date details",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "locationPlaceholder": "The Romantic Restaurant, New York...",
+      "theme": "Theme (optional)",
+      "themePlaceholder": "Fancy dinner, picnic, movie night..."
+    },
+    "clues": {
+      "title": "Clues ({count}/5)",
+      "description": "Clues your partner will reveal one by one",
+      "placeholder": "Clue #{number}",
+      "add": "Add a clue"
+    },
+    "countdown": {
+      "anniversary": "Your anniversary date",
+      "withRdv": "Countdown (auto-filled from the date)",
+      "default": "Countdown",
+      "anniversaryHint": "The date you got together — a counter will show the time elapsed",
+      "defaultHint": "Optional — a timer will be displayed on the card"
+    },
+    "reasons": {
+      "title": "Why I love you ({count}/10)",
+      "placeholder": "Reason #{number}",
+      "add": "Add"
+    },
+    "promises": {
+      "title": "My promises ({count}/10)",
+      "placeholder": "Promise #{number}",
+      "add": "Add a promise"
+    },
+    "sorry": {
+      "messagesTitle": "Your pleading messages ({count}/20)",
+      "messagesDescription": "Customize the messages that appear when you plead. Leave empty for default messages.",
+      "messagePlaceholder": "Message #{number} — e.g. Please forgive me...",
+      "addMessage": "Add a message",
+      "refusalsTitle": "Reactions when they say no ({count}/13)",
+      "refusalsDescription": "What appears when they click \"No\". Leave empty for default reactions.",
+      "refusalPlaceholder": "Reaction #{number} — e.g. No?! But... come on!",
+      "addRefusal": "Add a reaction"
+    },
+    "memories": {
+      "title": "Our best memories ({count}/10)",
+      "placeholder": "Memory #{number}",
+      "add": "Add a memory"
+    },
+    "quiz": {
+      "title": "Quiz ({count}/5 questions)",
+      "question": "Question {number}",
+      "questionPlaceholder": "Your question...",
+      "optionPlaceholder": "Option {number}",
+      "correctAnswer": "Correct answer (must match one of the options)",
+      "addQuestion": "Add a question"
+    },
+    "prizes": {
+      "title": "Scratch-off prizes ({count}/5)",
+      "description": "Set rewards based on the quiz score",
+      "prize": "Prize {number}",
+      "scoreMin": "Min score",
+      "textPlaceholder": "Massage, kiss, chocolate cake...",
+      "add": "Add a prize"
+    },
+    "scratch": {
+      "title": "Scratch-off message",
+      "placeholder": "The hidden message to discover..."
+    },
+    "music": {
+      "title": "Background music",
+      "enable": "Enable music",
+      "urlPlaceholder": "Audio file URL (mp3, wav...)",
+      "hint": "Paste a direct link to an audio file (.mp3)"
+    },
+    "error": {
+      "generic": "Something went wrong",
+      "network": "Unable to reach the server"
+    },
+    "submit": {
+      "creating": "Creating...",
+      "create": "Create the message"
+    },
+    "preview": {
+      "title": "Preview",
+      "forRecipient": "For {name}"
+    }
+  }
+}

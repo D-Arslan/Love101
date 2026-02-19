@@ -1,0 +1,26 @@
+{
+  "dashboard": {
+    "title": "Panel de control",
+    "subtitle": "Gestiona tus mensajes personalizados",
+    "stats": {
+      "messagesCreated": "Mensajes creados",
+      "totalViews": "Vistas totales"
+    },
+    "cardList": {
+      "empty": "Aun no hay mensajes",
+      "emptyDescription": "Crea tu primer mensaje personalizado!",
+      "createMessage": "Crear un mensaje",
+      "myMessages": "Mis mensajes",
+      "new": "Nuevo",
+      "forRecipient": "Para {name}"
+    },
+    "deleteCard": {
+      "title": "Eliminar este mensaje?",
+      "description": "El mensaje para <strong>{name}</strong> sera eliminado permanentemente. Esta accion no se puede deshacer.",
+      "cancel": "Cancelar",
+      "delete": "Eliminar",
+      "successToast": "Tarjeta eliminada",
+      "errorToast": "Error al eliminar"
+    }
+  }
+}

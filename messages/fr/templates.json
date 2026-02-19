@@ -1,0 +1,58 @@
+{
+  "templates": {
+    "valentine": {
+      "name": "Saint-Valentin",
+      "description": "Une invitation : Veux-tu etre ma valentine ?",
+      "placeholder": {
+        "message": "Veux-tu etre ma valentine ? Je t'attends avec impatience pour passer la plus belle soiree ensemble...",
+        "senderName": "Ton valentin",
+        "recipientName": "Ma valentine"
+      }
+    },
+    "apology": {
+      "name": "Demande de pardon",
+      "description": "Un algorithme de supplication interactif et irresistible",
+      "placeholder": {
+        "message": "Je sais que j'ai fait une erreur et je m'en veux. Tu comptes enormement pour moi et je ferai tout pour me rattraper...",
+        "senderName": "Celui/celle qui regrette",
+        "recipientName": "Toi que j'ai blesse(e)"
+      }
+    },
+    "love-letter": {
+      "name": "Mots d'amour",
+      "description": "Pourquoi je t'aime : une lettre avec un message cache",
+      "placeholder": {
+        "message": "Chaque jour a tes cotes est un cadeau. Tu illumines ma vie d'une maniere que les mots ne peuvent decrire...",
+        "senderName": "Avec tout mon amour",
+        "recipientName": "Mon tresor"
+      }
+    },
+    "anniversary": {
+      "name": "Anniversaire",
+      "description": "Nos meilleurs souvenirs, un quiz et un compteur de jours ensemble",
+      "placeholder": {
+        "message": "X ans/mois ensemble et chaque jour je t'aime un peu plus. Merci d'etre la personne extraordinaire que tu es...",
+        "senderName": "Ta moitie",
+        "recipientName": "Mon/Ma partenaire"
+      }
+    },
+    "quiz-game": {
+      "name": "Tu me connais ?",
+      "description": "Un quiz sur ton couple avec des prix a gratter selon le score",
+      "placeholder": {
+        "message": "Tu penses bien me connaitre ? Prouve-le ! Reponds a ces questions et decouvre ta recompense...",
+        "senderName": "Ton/Ta cheri(e)",
+        "recipientName": "Mon coeur"
+      }
+    },
+    "rdv": {
+      "name": "Rendez-vous",
+      "description": "Donne un rendez-vous mysterieux avec des indices",
+      "placeholder": {
+        "message": "J'ai une surprise pour toi... Suis les indices et retrouve-moi au rendez-vous !",
+        "senderName": "Ton/Ta mysterieux(se)",
+        "recipientName": "Mon aventurier(e)"
+      }
+    }
+  }
+}

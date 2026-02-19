@@ -1,0 +1,38 @@
+{
+  "landing": {
+    "hero": {
+      "title": "Create a message",
+      "titleHighlight": "they'll never forget",
+      "subtitle": "Valentine's Day, apologies, love notes, anniversaries... Customize, share a link, and sweep your partner off their feet.",
+      "cta": "Get started"
+    },
+    "howItWorks": {
+      "title": "How does it work?",
+      "subtitle": "Ready in 3 simple steps.",
+      "step1Title": "Choose",
+      "step1Description": "Pick a template for the occasion.",
+      "step2Title": "Customize",
+      "step2Description": "Add your message, colors, and surprises.",
+      "step3Title": "Share",
+      "step3Description": "Send the unique link to your partner."
+    },
+    "templateGrid": {
+      "badge": "Pick your template",
+      "title": "What's the occasion?"
+    },
+    "featureLabels": {
+      "envelope": "Envelope",
+      "countdown": "Countdown",
+      "reasons": "Why I love you",
+      "promises": "My promises",
+      "memories": "Our memories",
+      "quiz": "Quiz",
+      "quiz-prizes": "Scratch-off prizes",
+      "scratch": "Hidden message",
+      "music": "Music",
+      "sorry-algorithm": "The Forgiveness Algorithm",
+      "rdv-details": "Date details",
+      "rdv-clues": "Clues"
+    }
+  }
+}

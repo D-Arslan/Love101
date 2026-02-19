@@ -1,0 +1,98 @@
+{
+  "create": {
+    "recipientLabel": "Pour qui ? (ex: {placeholder})",
+    "senderLabel": "De la part de ? (ex: {placeholder})",
+    "messageLabel": "Ton message",
+    "colorsLabel": "Couleurs",
+    "colorPrimary": "Principale",
+    "colorSecondary": "Secondaire",
+    "colorBackground": "Fond",
+    "colorText": "Texte",
+    "featuresTitle": "Fonctionnalites interactives",
+    "rdv": {
+      "title": "Details du rendez-vous",
+      "date": "Date",
+      "time": "Heure",
+      "location": "Lieu",
+      "locationPlaceholder": "Restaurant Le Romantique, Paris...",
+      "theme": "Theme (optionnel)",
+      "themePlaceholder": "Soiree chic, pique-nique, cinema..."
+    },
+    "clues": {
+      "title": "Indices ({count}/5)",
+      "description": "Des indices que ton/ta partenaire devra reveler un par un",
+      "placeholder": "Indice #{number}",
+      "add": "Ajouter un indice"
+    },
+    "countdown": {
+      "anniversary": "Date de votre anniversaire",
+      "withRdv": "Compte a rebours (auto-rempli depuis le RDV)",
+      "default": "Compte a rebours",
+      "anniversaryHint": "La date depuis laquelle vous etes ensemble — un compteur affichera le temps ecoule",
+      "defaultHint": "Optionnel — un timer s'affichera sur la carte"
+    },
+    "reasons": {
+      "title": "Pourquoi je t'aime ({count}/10)",
+      "placeholder": "Raison #{number}",
+      "add": "Ajouter"
+    },
+    "promises": {
+      "title": "Mes promesses ({count}/10)",
+      "placeholder": "Promesse #{number}",
+      "add": "Ajouter une promesse"
+    },
+    "sorry": {
+      "messagesTitle": "Tes phrases de supplication ({count}/20)",
+      "messagesDescription": "Personnalise les messages qui s'afficheront quand tu supplies. Laisse vide pour les phrases par defaut.",
+      "messagePlaceholder": "Message #{number} — ex: S'il te plait, pardonne-moi...",
+      "addMessage": "Ajouter un message",
+      "refusalsTitle": "Reactions quand il/elle refuse ({count}/13)",
+      "refusalsDescription": "Ce qui s'affiche quand la personne clique \"Non\". Laisse vide pour les reactions par defaut.",
+      "refusalPlaceholder": "Reaction #{number} — ex: Non ?! Mais... quand meme !",
+      "addRefusal": "Ajouter une reaction"
+    },
+    "memories": {
+      "title": "Nos meilleurs souvenirs ({count}/10)",
+      "placeholder": "Souvenir #{number}",
+      "add": "Ajouter un souvenir"
+    },
+    "quiz": {
+      "title": "Quiz ({count}/5 questions)",
+      "question": "Question {number}",
+      "questionPlaceholder": "Ta question...",
+      "optionPlaceholder": "Option {number}",
+      "correctAnswer": "Bonne reponse (doit correspondre a une option)",
+      "addQuestion": "Ajouter une question"
+    },
+    "prizes": {
+      "title": "Prix a gratter ({count}/5)",
+      "description": "Definis des recompenses selon le score obtenu au quiz",
+      "prize": "Prix {number}",
+      "scoreMin": "Score min",
+      "textPlaceholder": "Massage, bisou, gateau au chocolat...",
+      "add": "Ajouter un prix"
+    },
+    "scratch": {
+      "title": "Message a gratter",
+      "placeholder": "Le message cache a decouvrir..."
+    },
+    "music": {
+      "title": "Musique de fond",
+      "enable": "Activer la musique",
+      "urlPlaceholder": "URL du fichier audio (mp3, wav...)",
+      "hint": "Colle un lien direct vers un fichier audio (.mp3)"
+    },
+    "error": {
+      "generic": "Une erreur est survenue",
+      "network": "Impossible de contacter le serveur"
+    },
+    "submit": {
+      "creating": "Creation...",
+      "create": "Creer le message"
+    },
+    "preview": {
+      "title": "Apercu",
+      "forRecipient": "Pour {name}"
+    }
+  }
+}

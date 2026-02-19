@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import Link from "next/link"
+import { useLocale, useTranslations } from "next-intl"
 import { createClient } from "@/lib/supabase/client"
 import { User, LayoutDashboard, LogOut, Loader2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -14,6 +14,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu"
+import { Link } from "@/i18n/navigation"
 
 interface UserMenuProps {
   email: string
@@ -21,13 +22,15 @@ interface UserMenuProps {
 
 export function UserMenu({ email }: UserMenuProps) {
   const router = useRouter()
+  const locale = useLocale()
+  const t = useTranslations("common.userMenu")
   const [isLoggingOut, setIsLoggingOut] = useState(false)
 
   async function handleLogout() {
     setIsLoggingOut(true)
     const supabase = createClient()
     await supabase.auth.signOut()
-    router.push("/")
+    router.push(`/${locale}`)
     router.refresh()
   }
 
@@ -46,7 +49,7 @@ export function UserMenu({ email }: UserMenuProps) {
         <DropdownMenuItem asChild>
           <Link href="/dashboard">
             <LayoutDashboard className="h-4 w-4 mr-2" />
-            Tableau de bord
+            {t("dashboard")}
           </Link>
         </DropdownMenuItem>
         <DropdownMenuSeparator />
@@ -56,7 +59,7 @@ export function UserMenu({ email }: UserMenuProps) {
           ) : (
             <LogOut className="h-4 w-4 mr-2" />
           )}
-          {isLoggingOut ? "Deconnexion..." : "Deconnexion"}
+          {isLoggingOut ? t("loggingOut") : t("logout")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

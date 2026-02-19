@@ -1,0 +1,37 @@
+{
+  "dates": {
+    "title": "Idees de Date",
+    "titleHighlight": "A — Z",
+    "subtitle": "26 idees de rendez-vous, une pour chaque lettre. Trouve l'inspiration et surprends ton/ta partenaire.",
+    "cta": "Tu as trouve l'idee parfaite ? Invite ton/ta partenaire avec un message personnalise.",
+    "ctaButton": "Creer une invitation",
+    "ideas": {
+      "A": { "title": "Atelier cuisine", "description": "Preparez un plat ensemble : sushi, pizza maison, ou patisserie. Le resultat compte moins que les fous rires." },
+      "B": { "title": "Balade au coucher de soleil", "description": "Trouvez un beau point de vue, emportez une couverture et admirez le ciel ensemble." },
+      "C": { "title": "Cinema en plein air", "description": "Installez un drap blanc, un projecteur, des coussins et du popcorn. Votre cinema prive." },
+      "D": { "title": "Degustation a l'aveugle", "description": "Bandez-vous les yeux et devinez des chocolats, fromages ou vins. Celui qui perd fait la vaisselle." },
+      "E": { "title": "Escape game", "description": "Testez votre complicite en resolvant des enigmes ensemble. Rien de tel pour renforcer le duo." },
+      "F": { "title": "Fete foraine", "description": "Barbe a papa, grande roue et peluches gagnees. Retrouvez votre ame d'enfant." },
+      "G": { "title": "Game night", "description": "Jeux de societe, jeux video en duo ou bataille de cartes. La competition saine, ca rapproche." },
+      "H": { "title": "Hotel mystere", "description": "Reservez un hotel surprise dans votre ville et jouez aux touristes pour une nuit." },
+      "I": { "title": "Improvisation", "description": "Prenez un cours d'impro ensemble ou inventez des scenes a la maison. Fous rires garantis." },
+      "J": { "title": "Jardin botanique", "description": "Promenez-vous parmi les fleurs, respirez les parfums et prenez de belles photos ensemble." },
+      "K": { "title": "Karaoke", "description": "Louez une salle privee et chantez vos chansons preferees sans complexe. Duos obligatoires." },
+      "L": { "title": "Lettre d'amour", "description": "Ecrivez-vous chacun une lettre et lisez-la a voix haute. Intime et inoubliable." },
+      "M": { "title": "Marche nocturne", "description": "Explorez un marche de nuit, goutez des plats du monde et flanez main dans la main." },
+      "N": { "title": "Nuit a la belle etoile", "description": "Emportez des couvertures, trouvez un endroit calme et observez les etoiles ensemble." },
+      "O": { "title": "Origami a deux", "description": "Suivez des tutoriels et creez des grues, coeurs ou fleurs en papier. Offrez-vous vos creations." },
+      "P": { "title": "Pique-nique gastronomique", "description": "Preparez un panier avec vos plats preferes, une bonne bouteille, et trouvez le spot parfait." },
+      "Q": { "title": "Quiz sur votre couple", "description": "Testez combien vous vous connaissez avec des questions sur vos gouts, souvenirs et reves." },
+      "R": { "title": "Road trip spontane", "description": "Montez en voiture sans destination. Arretez-vous la ou ca vous plait. L'aventure commence." },
+      "S": { "title": "Spa maison", "description": "Bougies, musique douce, masques, massages. Transformez votre salle de bain en institut." },
+      "T": { "title": "Thrift shopping", "description": "Allez dans des friperies et choisissez-vous mutuellement une tenue complete. Defi mode." },
+      "U": { "title": "Un concert en live", "description": "Decouvrez un artiste local dans un bar ou une petite salle. La musique live a un charme unique." },
+      "V": { "title": "Visite de musee", "description": "Choisissez une expo qui vous intrigue et discutez de vos impressions devant un cafe apres." },
+      "W": { "title": "Weekend sans telephone", "description": "Deconnectez-vous 48h et concentrez-vous l'un sur l'autre. Digital detox en amoureux." },
+      "X": { "title": "eXperience insolite", "description": "Saut en parachute, cours de poterie, bain flottant... Choisissez quelque chose que ni l'un ni l'autre n'a fait." },
+      "Y": { "title": "Yoga en duo", "description": "Essayez le yoga a deux avec des postures synchronisees. Equilibre, confiance et connexion." },
+      "Z": { "title": "Zoo ou aquarium", "description": "Emerveillez-vous devant les animaux comme des enfants. Choisissez chacun votre animal prefere." }
+    }
+  }
+}
