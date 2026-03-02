@@ -8,6 +8,8 @@ import { ReviewForm } from "@/components/reviews/ReviewForm"
 import { ReviewList } from "@/components/reviews/ReviewList"
 import type { Review } from "@/lib/types/review"
 
+export const dynamic = "force-dynamic"
+
 interface ReviewsPageProps {
   params: Promise<{ locale: string }>
 }

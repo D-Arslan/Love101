@@ -2,7 +2,11 @@
   "common": {
     "nav": {
       "login": "Log in",
-      "appName": "Love101"
+      "appName": "Love101",
+      "reviews": "Reviews",
+      "about": "About",
+      "dates": "Date Ideas",
+      "contact": "Contact"
     },
     "userMenu": {
       "dashboard": "Dashboard",
