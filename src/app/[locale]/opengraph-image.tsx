@@ -6,7 +6,7 @@ export const size = { width: 1200, height: 630 }
 export const contentType = "image/png"
 
 const subtitles: Record<string, string> = {
-  fr: "Cree un message d'amour personnalise et fais craquer ton/ta partenaire",
+  fr: "Crée un message d'amour personnalisé et fais craquer ton/ta partenaire",
   en: "Create a personalized love message and sweep your partner off their feet",
   es: "Crea un mensaje de amor personalizado y enamora a tu pareja",
 }

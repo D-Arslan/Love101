@@ -44,7 +44,6 @@ export async function DELETE(request: Request, { params }: RouteParams) {
     const { error } = await admin.from("cards").delete().eq("id", id)
 
     if (error) {
-      console.error("Supabase delete error:", error)
       return NextResponse.json(
         { error: "Erreur lors de la suppression" },
         { status: 500 }

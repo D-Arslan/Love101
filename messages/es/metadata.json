@@ -16,6 +16,14 @@
       "title": "Ideas para citas A-Z",
       "description": "26 ideas originales para citas romanticas, una por cada letra del abecedario. Encuentra la inspiracion para tu proxima cita!"
     },
+    "reviews": {
+      "title": "Opiniones",
+      "description": "Descubre lo que la gente piensa de Love101. Lee las opiniones y comparte tu experiencia."
+    },
+    "about": {
+      "title": "Acerca de Love101",
+      "description": "Descubre la historia detrás de Love101, la plataforma para crear mensajes de amor personalizados."
+    },
     "login": {
       "title": "Iniciar sesion"
     },

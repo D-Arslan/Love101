@@ -45,7 +45,7 @@ function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryC
     ctx.fillStyle = "rgba(255,255,255,0.3)"
     ctx.font = "14px sans-serif"
     ctx.textAlign = "center"
-    ctx.fillText("Gratte pour decouvrir ton prix ! 🎁", canvas.width / 2, canvas.height / 2)
+    ctx.fillText("Gratte pour découvrir ton prix ! 🎁", canvas.width / 2, canvas.height / 2)
   }, [primaryColor])
 
   function getPos(e: React.MouseEvent | React.TouchEvent) {
@@ -176,16 +176,16 @@ export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPriz
         </p>
         <p className="text-sm text-gray-500">
           {score === questions.length
-            ? "Score parfait ! Tu me connais par coeur 💕"
+            ? "Score parfait ! Tu me connais par cœur 💕"
             : score >= questions.length / 2
               ? "Pas mal ! Tu me connais bien 😘"
-              : "On dirait qu'il faut mieux me connaitre 😏"}
+              : "On dirait qu'il faut mieux me connaître 😏"}
         </p>
 
         {prizeText && (
           <div className="pt-2">
             <p className="text-sm font-medium text-gray-600 mb-3">
-              Ta recompense :
+              Ta récompense :
             </p>
             <ScratchPrize prizeText={prizeText} primaryColor={primaryColor} />
           </div>

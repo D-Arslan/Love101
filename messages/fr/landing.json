@@ -1,7 +1,7 @@
 {
   "landing": {
     "hero": {
-      "title": "Cree un message",
+      "title": "Crée un message",
       "titleHighlight": "inoubliable",
       "subtitle": "Saint-Valentin, excuses, mots doux, anniversaire... Personnalise, partage un lien, et fais craquer ton/ta partenaire.",
       "cta": "Commencer"
@@ -22,13 +22,13 @@
     },
     "featureLabels": {
       "envelope": "Enveloppe",
-      "countdown": "Compte a rebours",
+      "countdown": "Compte à rebours",
       "reasons": "Pourquoi je t'aime",
       "promises": "Mes promesses",
       "memories": "Nos souvenirs",
       "quiz": "Quiz",
-      "quiz-prizes": "Prix a gratter",
-      "scratch": "Message cache",
+      "quiz-prizes": "Prix à gratter",
+      "scratch": "Message caché",
       "music": "Musique",
       "sorry-algorithm": "L'Algorithme du pardon",
       "rdv-details": "Rendez-vous",

@@ -70,7 +70,7 @@ export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps)
           style={{ backgroundColor: primaryColor }}
         >
           <Eye className="h-4 w-4" />
-          Reveler l&apos;indice #{revealedCount + 1}
+          Révéler l&apos;indice #{revealedCount + 1}
         </motion.button>
       )}
 
@@ -81,7 +81,7 @@ export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps)
           className="text-center text-sm"
           style={{ color: secondaryColor }}
         >
-          Tous les indices sont reveles ! A toi de jouer 😏
+          Tous les indices sont révélés ! À toi de jouer 😏
         </motion.p>
       )}
     </motion.div>

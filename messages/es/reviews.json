@@ -1,0 +1,35 @@
+{
+  "reviews": {
+    "title": "Opiniones de",
+    "titleHighlight": "nuestra comunidad",
+    "subtitle": "Descubre lo que la gente piensa de Love101.",
+    "averageRating": "Puntuación media",
+    "outOf": "/ 5",
+    "totalReviews": "{count, plural, =0 {Sin opiniones} =1 {1 opinión} other {# opiniones}}",
+    "noReviews": "Aún no hay opiniones. ¡Sé el primero en compartir tu experiencia!",
+    "form": {
+      "title": "Deja tu opinión",
+      "nameLabel": "Tu nombre",
+      "namePlaceholder": "¿Cómo te llamas?",
+      "ratingLabel": "Tu puntuación",
+      "commentLabel": "Tu opinión",
+      "commentPlaceholder": "Cuéntanos tu experiencia con Love101...",
+      "submit": "Publicar opinión",
+      "submitting": "Publicando...",
+      "loginRequired": "Inicia sesión para dejar una opinión.",
+      "loginLink": "Iniciar sesión",
+      "successToast": "¡Gracias por tu opinión!",
+      "errorToast": "Algo salió mal. Inténtalo de nuevo.",
+      "alreadyReviewed": "Ya dejaste una opinión. Puedes editarla a continuación.",
+      "updateButton": "Actualizar opinión",
+      "updating": "Actualizando..."
+    },
+    "stars": {
+      "1": "Malo",
+      "2": "Regular",
+      "3": "Bueno",
+      "4": "Muy bueno",
+      "5": "Excelente"
+    }
+  }
+}

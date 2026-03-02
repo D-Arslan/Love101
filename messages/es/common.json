@@ -11,10 +11,22 @@
     },
     "footer": {
       "tagline": "Crea mensajes personalizados que enamoran.",
-      "dateIdeas": "Ideas para citas",
-      "contact": "Contacto",
+      "sections": {
+        "explore": "Explorar",
+        "company": "Empresa",
+        "legal": "Legal"
+      },
+      "links": {
+        "createMessage": "Crear un mensaje",
+        "dateIdeas": "Ideas para citas",
+        "reviews": "Opiniones",
+        "about": "Acerca de",
+        "contact": "Contacto",
+        "privacyPolicy": "Política de privacidad",
+        "termsOfService": "Términos de servicio"
+      },
       "madeWith": "Hecho con",
-      "appName": "Love101"
+      "allRightsReserved": "Todos los derechos reservados."
     },
     "share": {
       "home": "Inicio",

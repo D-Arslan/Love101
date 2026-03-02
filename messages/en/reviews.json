@@ -1,0 +1,35 @@
+{
+  "reviews": {
+    "title": "Reviews from",
+    "titleHighlight": "our community",
+    "subtitle": "See what people are saying about Love101.",
+    "averageRating": "Average rating",
+    "outOf": "/ 5",
+    "totalReviews": "{count, plural, =0 {No reviews yet} =1 {1 review} other {# reviews}}",
+    "noReviews": "No reviews yet. Be the first to share your experience!",
+    "form": {
+      "title": "Leave a review",
+      "nameLabel": "Your name",
+      "namePlaceholder": "What should we call you?",
+      "ratingLabel": "Your rating",
+      "commentLabel": "Your review",
+      "commentPlaceholder": "Tell us about your experience with Love101...",
+      "submit": "Submit review",
+      "submitting": "Submitting...",
+      "loginRequired": "You need to be logged in to leave a review.",
+      "loginLink": "Log in",
+      "successToast": "Thank you for your review!",
+      "errorToast": "Something went wrong. Please try again.",
+      "alreadyReviewed": "You've already left a review. You can edit it below.",
+      "updateButton": "Update review",
+      "updating": "Updating..."
+    },
+    "stars": {
+      "1": "Poor",
+      "2": "Fair",
+      "3": "Good",
+      "4": "Great",
+      "5": "Excellent"
+    }
+  }
+}

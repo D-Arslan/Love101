@@ -11,10 +11,22 @@
     },
     "footer": {
       "tagline": "Create personalized messages that make hearts melt.",
-      "dateIdeas": "Date Ideas",
-      "contact": "Contact",
+      "sections": {
+        "explore": "Explore",
+        "company": "Company",
+        "legal": "Legal"
+      },
+      "links": {
+        "createMessage": "Create a message",
+        "dateIdeas": "Date Ideas",
+        "reviews": "Reviews",
+        "about": "About",
+        "contact": "Contact",
+        "privacyPolicy": "Privacy Policy",
+        "termsOfService": "Terms of Service"
+      },
       "madeWith": "Made with",
-      "appName": "Love101"
+      "allRightsReserved": "All rights reserved."
     },
     "share": {
       "home": "Home",

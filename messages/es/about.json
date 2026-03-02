@@ -1,0 +1,27 @@
+{
+  "about": {
+    "title": "Acerca de",
+    "titleHighlight": "Love101",
+    "heroText": "Una historia de amor que comenzó con una simple idea.",
+    "sections": {
+      "origin": {
+        "title": "Cómo empezó todo",
+        "text": "Love101 nació de una idea simple: ¿y si expresar tu amor fuera tan fácil como enviar un enlace? En un mundo lleno de mensajes genéricos, queríamos crear algo personal, algo que haga latir el corazón."
+      },
+      "mission": {
+        "title": "Nuestra misión",
+        "text": "Creemos que el amor merece más que un simple mensaje de texto. Cada relación es única, y la forma en que expresas tus sentimientos también debería serlo. Love101 te da las herramientas para crear mensajes personalizados y animados que realmente capturan lo que sientes."
+      },
+      "passion": {
+        "title": "Construido con pasión",
+        "text": "Cada función, cada animación, cada detalle fue diseñado con cuidado. Del sobre sorpresa al quiz de amor, de la cuenta regresiva a la tarjeta para raspar — cada elemento fue pensado para crear un momento de emoción genuina."
+      },
+      "community": {
+        "title": "Para la comunidad",
+        "text": "Love101 es más que una herramienta — es una comunidad de personas que creen en el poder de los pequeños gestos. Ya sea San Valentín, un aniversario, o simplemente un martes, siempre hay una buena razón para decirle a alguien que lo amas."
+      }
+    },
+    "cta": "¿Listo/a para crear algo especial?",
+    "ctaButton": "Crear un mensaje"
+  }
+}

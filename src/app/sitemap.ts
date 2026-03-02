@@ -7,6 +7,8 @@ const staticPages = [
   { path: "", changeFrequency: "weekly" as const, priority: 1 },
   { path: "/create", changeFrequency: "monthly" as const, priority: 0.8 },
   { path: "/dates", changeFrequency: "monthly" as const, priority: 0.7 },
+  { path: "/reviews", changeFrequency: "weekly" as const, priority: 0.7 },
+  { path: "/about", changeFrequency: "monthly" as const, priority: 0.6 },
   { path: "/contact", changeFrequency: "monthly" as const, priority: 0.5 },
   { path: "/auth/login", changeFrequency: "monthly" as const, priority: 0.5 },
   { path: "/auth/signup", changeFrequency: "monthly" as const, priority: 0.5 },

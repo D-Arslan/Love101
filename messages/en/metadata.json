@@ -16,6 +16,14 @@
       "title": "Date Ideas A-Z",
       "description": "26 creative date ideas, one for every letter of the alphabet. Find inspiration for your next date!"
     },
+    "reviews": {
+      "title": "Reviews",
+      "description": "See what people are saying about Love101. Read reviews and share your experience."
+    },
+    "about": {
+      "title": "About Love101",
+      "description": "Discover the story behind Love101, the platform for creating personalized love messages."
+    },
     "login": {
       "title": "Log in"
     },

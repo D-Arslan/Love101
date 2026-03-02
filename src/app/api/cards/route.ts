@@ -48,7 +48,6 @@ export async function POST(request: Request) {
       .single()
 
     if (error) {
-      console.error("Supabase insert error:", error)
       return NextResponse.json(
         { error: "Erreur lors de la création de la carte" },
         { status: 500 }

@@ -5,6 +5,7 @@ export const MAX_QUIZ_QUESTIONS = 5
 export const MAX_REASONS = 10
 export const MAX_PROMISES = 10
 export const MAX_RDV_CLUES = 5
+export const MAX_REVIEW_COMMENT_LENGTH = 500
 
 export const TEMPLATE_TYPES = [
   "valentine",

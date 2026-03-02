@@ -11,10 +11,22 @@
     },
     "footer": {
       "tagline": "Crée des messages personnalisés qui font craquer.",
-      "dateIdeas": "Idees de Date",
-      "contact": "Contact",
+      "sections": {
+        "explore": "Explorer",
+        "company": "Entreprise",
+        "legal": "Légal"
+      },
+      "links": {
+        "createMessage": "Créer un message",
+        "dateIdeas": "Idées de Date",
+        "reviews": "Avis",
+        "about": "À propos",
+        "contact": "Contact",
+        "privacyPolicy": "Politique de confidentialité",
+        "termsOfService": "Conditions d'utilisation"
+      },
       "madeWith": "Fait avec",
-      "appName": "Love101"
+      "allRightsReserved": "Tous droits réservés."
     },
     "share": {
       "home": "Accueil",
