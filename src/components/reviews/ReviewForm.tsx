@@ -1,9 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { useTranslations } from "next-intl"
 import { createReviewSchema } from "@/lib/validators/review"
+import { createClient } from "@/lib/supabase/client"
 import { toast } from "sonner"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -13,22 +14,52 @@ import { StarRating } from "./StarRating"
 import { Link } from "@/i18n/navigation"
 import type { Review } from "@/lib/types/review"
 
-interface ReviewFormProps {
-  isLoggedIn: boolean
-  existingReview?: Review | null
-}
-
-export function ReviewForm({ isLoggedIn, existingReview }: ReviewFormProps) {
+export function ReviewForm() {
   const router = useRouter()
   const t = useTranslations("reviews.form")
 
-  const [name, setName] = useState(existingReview?.author_name ?? "")
-  const [rating, setRating] = useState(existingReview?.rating ?? 0)
-  const [comment, setComment] = useState(existingReview?.comment ?? "")
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [existingReview, setExistingReview] = useState<Review | null>(null)
+  const [isLoading, setIsLoading] = useState(true)
+  const [name, setName] = useState("")
+  const [rating, setRating] = useState(0)
+  const [comment, setComment] = useState("")
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
+  useEffect(() => {
+    async function loadAuthState() {
+      const supabase = createClient()
+      const { data: { user } } = await supabase.auth.getUser()
+      setIsLoggedIn(!!user)
+
+      if (user) {
+        const { data } = await supabase
+          .from("reviews")
+          .select("*")
+          .eq("user_id", user.id)
+          .single()
+        if (data) {
+          setExistingReview(data as Review)
+          setName(data.author_name)
+          setRating(data.rating)
+          setComment(data.comment)
+        }
+      }
+      setIsLoading(false)
+    }
+    loadAuthState()
+  }, [])
+
   const isEditing = !!existingReview
+
+  if (isLoading) {
+    return (
+      <div className="bg-white rounded-2xl border border-gray-100 shadow-md p-6 text-center">
+        <Loader2 className="h-5 w-5 animate-spin mx-auto text-gray-400" />
+      </div>
+    )
+  }
 
   if (!isLoggedIn) {
     return (

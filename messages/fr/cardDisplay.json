@@ -1,0 +1,82 @@
+{
+  "cardDisplay": {
+    "card": {
+      "forRecipient": "Pour {name}"
+    },
+    "countdown": {
+      "since": "Depuis",
+      "in": "Dans",
+      "days": "jours",
+      "hours": "heures",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "envelope": {
+      "forRecipient": "Pour {name}",
+      "tapToOpen": "Appuie pour ouvrir"
+    },
+    "memories": {
+      "title": "Nos {count} meilleurs souvenirs"
+    },
+    "music": {
+      "pauseLabel": "Pause musique",
+      "playLabel": "Jouer musique"
+    },
+    "promises": {
+      "title": "Mes {count} promesses"
+    },
+    "quiz": {
+      "perfectScore": "Score parfait ! Tu me connais par cœur 💕",
+      "goodScore": "Pas mal ! Tu me connais bien 😘",
+      "poorScore": "On dirait qu'il faut mieux me connaître 😏"
+    },
+    "quizPrizes": {
+      "title": "Tu me connais ?",
+      "scratchHint": "Gratte pour découvrir ton prix ! 🎁",
+      "prizeReveal": "🎉 Ton prix :",
+      "rewardLabel": "Ta récompense :",
+      "prizeHint": "Un prix t'attend selon ton score !"
+    },
+    "rdvClues": {
+      "title": "Indices ({revealed}/{total})",
+      "revealButton": "Révéler l'indice #{number}",
+      "allRevealed": "Tous les indices sont révélés ! À toi de jouer 😏"
+    },
+    "rdvDetails": {
+      "title": "Rendez-vous",
+      "date": "Date",
+      "time": "Heure",
+      "location": "Lieu",
+      "theme": "Thème"
+    },
+    "reasons": {
+      "title": "{count} raisons pour lesquelles je t'aime"
+    },
+    "scratch": {
+      "hintText": "Gratte ici ✨",
+      "title": "Gratte pour découvrir"
+    },
+    "sorry": {
+      "milestone5": "🐶 MODE CHIOT ABANDONNE ACTIVE — *te regarde avec des grands yeux tristes*",
+      "milestone10": "🚨 ALERTE NIVEAU ORANGE : DESESPOIR CRITIQUE — Les serveurs de pardon sont en surchauffe !",
+      "milestone15": "🔴 CODE ROUGE : SUPPLICATION MAXIMALE — Ce programme consomme maintenant 100% de mon coeur.",
+      "milestoneLegendary": "🏆 LEGENDAIRE — {count} tentatives ! Meme Chuck Norris aurait pardonne a ce stade.",
+      "celebration1": "🎉 JE SUIS LA PERSONNE LA PLUS HEUREUSE DU MONDE !!!",
+      "celebration2": "🌟 Tu es la meilleure personne de l'univers. Officiel.",
+      "celebration3": "💛 Je savais que tu avais un coeur en or !",
+      "celebration4": "💃 YOUHOUUUUU ! *danse de la joie*",
+      "celebration5": "🤞 Promis, je ne recommencerai plus ! (probablement)",
+      "thanks": "MERCI !!!",
+      "attempt": "Tentative #{number}",
+      "attempts": "Tentatives : {count}",
+      "status": "Statut : Pardonne(e) ✅",
+      "happiness": "Bonheur : 💯",
+      "despair": "Desespoir",
+      "supplication": "Supplication",
+      "tears": "Larmes",
+      "credibility": "Credibilite",
+      "noButton": "Non 😤",
+      "yesButton": "Oui, je pardonne 💕"
+    }
+  }
+}

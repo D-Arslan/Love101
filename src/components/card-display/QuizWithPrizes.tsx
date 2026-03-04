@@ -3,6 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HelpCircle, CheckCircle2, XCircle, Trophy, Gift, Sparkles } from "lucide-react"
+import { useTranslations } from "next-intl"
 import type { QuizQuestionData, QuizPrize } from "@/lib/types/database"
 
 interface QuizWithPrizesProps {
@@ -11,7 +12,7 @@ interface QuizWithPrizesProps {
   primaryColor: string
 }
 
-function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryColor: string }) {
+function ScratchPrize({ prizeText, primaryColor, scratchHint, prizeRevealLabel }: { prizeText: string; primaryColor: string; scratchHint: string; prizeRevealLabel: string }) {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
   const [isRevealed, setIsRevealed] = useState(false)
@@ -45,7 +46,7 @@ function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryC
     ctx.fillStyle = "rgba(255,255,255,0.3)"
     ctx.font = "14px sans-serif"
     ctx.textAlign = "center"
-    ctx.fillText("Gratte pour découvrir ton prix ! 🎁", canvas.width / 2, canvas.height / 2)
+    ctx.fillText(scratchHint, canvas.width / 2, canvas.height / 2)
   }, [primaryColor])
 
   function getPos(e: React.MouseEvent | React.TouchEvent) {
@@ -87,7 +88,7 @@ function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryC
         className="bg-gradient-to-br from-yellow-50 to-orange-50 rounded-xl p-6 text-center border border-yellow-200"
       >
         <Sparkles className="h-6 w-6 mx-auto mb-2" style={{ color: primaryColor }} />
-        <p className="text-lg font-bold text-gray-900 mb-1">🎉 Ton prix :</p>
+        <p className="text-lg font-bold text-gray-900 mb-1">{prizeRevealLabel}</p>
         <p className="text-base font-medium" style={{ color: primaryColor }}>
           {prizeText}
         </p>
@@ -120,6 +121,8 @@ function ScratchPrize({ prizeText, primaryColor }: { prizeText: string; primaryC
 }
 
 export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPrizesProps) {
+  const t = useTranslations("cardDisplay.quiz")
+  const tp = useTranslations("cardDisplay.quizPrizes")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [selected, setSelected] = useState<string | null>(null)
@@ -176,18 +179,18 @@ export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPriz
         </p>
         <p className="text-sm text-gray-500">
           {score === questions.length
-            ? "Score parfait ! Tu me connais par cœur 💕"
+            ? t("perfectScore")
             : score >= questions.length / 2
-              ? "Pas mal ! Tu me connais bien 😘"
-              : "On dirait qu'il faut mieux me connaître 😏"}
+              ? t("goodScore")
+              : t("poorScore")}
         </p>
 
         {prizeText && (
           <div className="pt-2">
             <p className="text-sm font-medium text-gray-600 mb-3">
-              Ta récompense :
+              {tp("rewardLabel")}
             </p>
-            <ScratchPrize prizeText={prizeText} primaryColor={primaryColor} />
+            <ScratchPrize prizeText={prizeText} primaryColor={primaryColor} scratchHint={tp("scratchHint")} prizeRevealLabel={tp("prizeReveal")} />
           </div>
         )}
       </motion.div>
@@ -204,7 +207,7 @@ export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPriz
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <HelpCircle className="h-4 w-4" style={{ color: primaryColor }} />
-          <span className="text-sm font-medium text-gray-600">Tu me connais ?</span>
+          <span className="text-sm font-medium text-gray-600">{tp("title")}</span>
         </div>
         <span className="text-xs text-gray-400">
           {currentIndex + 1}/{questions.length}
@@ -272,7 +275,7 @@ export function QuizWithPrizes({ questions, prizes, primaryColor }: QuizWithPriz
       {prizes.length > 0 && (
         <p className="text-xs text-center text-gray-400 mt-3 flex items-center justify-center gap-1">
           <Gift className="h-3 w-3" />
-          Un prix t&apos;attend selon ton score !
+          {tp("prizeHint")}
         </p>
       )}
     </motion.div>

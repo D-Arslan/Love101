@@ -1,0 +1,40 @@
+{
+  "terms": {
+    "title": "Términos de",
+    "titleHighlight": "Servicio",
+    "lastUpdated": "Última actualización: 4 de marzo de 2026",
+    "intro": "Al usar Love101, aceptas estos términos de servicio. Por favor, léelos atentamente antes de usar nuestro servicio.",
+    "sections": {
+      "service": {
+        "title": "El Servicio",
+        "text": "Love101 es una plataforma en línea para crear y compartir mensajes de amor personalizados. El servicio se proporciona tal cual, sin garantía de disponibilidad permanente. Nos reservamos el derecho de modificar o descontinuar el servicio en cualquier momento."
+      },
+      "accounts": {
+        "title": "Cuentas de usuario",
+        "text": "Puedes crear una cuenta con tu dirección de correo electrónico o a través de Google OAuth. Eres responsable de la seguridad de tu cuenta y de todas las actividades que ocurran en ella. Cada cuenta está limitada a una reseña en la página de reseñas."
+      },
+      "content": {
+        "title": "Contenido del usuario",
+        "text": "Conservas la propiedad del contenido que creas (mensajes, nombres, configuraciones). Al publicar una tarjeta, nos otorgas una licencia limitada para alojar y mostrar ese contenido a través del enlace de compartir. No debes publicar contenido ilegal, ofensivo o que infrinja derechos de terceros."
+      },
+      "usage": {
+        "title": "Uso aceptable",
+        "text": "Te comprometes a usar Love101 de manera responsable. Están prohibidos: el envío de spam, el acoso, el uso de bots automatizados, cualquier intento de comprometer la seguridad del servicio y cualquier uso comercial no autorizado."
+      },
+      "liability": {
+        "title": "Limitación de responsabilidad",
+        "text": "Love101 se proporciona de forma gratuita y sin garantía. No somos responsables de daños directos o indirectos derivados del uso del servicio. No garantizamos la disponibilidad permanente de las tarjetas publicadas."
+      },
+      "changes": {
+        "title": "Modificaciones",
+        "text": "Podemos modificar estos términos en cualquier momento. Los cambios entrarán en vigor una vez publicados en esta página. Al continuar usando el servicio después de una modificación, aceptas los nuevos términos."
+      }
+    }
+  },
+  "metadata": {
+    "terms": {
+      "title": "Términos de Servicio — Love101",
+      "description": "Términos de servicio de Love101."
+    }
+  }
+}

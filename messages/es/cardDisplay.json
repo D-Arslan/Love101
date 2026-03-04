@@ -1,0 +1,82 @@
+{
+  "cardDisplay": {
+    "card": {
+      "forRecipient": "Para {name}"
+    },
+    "countdown": {
+      "since": "Desde",
+      "in": "En",
+      "days": "días",
+      "hours": "horas",
+      "minutes": "min",
+      "seconds": "seg"
+    },
+    "envelope": {
+      "forRecipient": "Para {name}",
+      "tapToOpen": "Toca para abrir"
+    },
+    "memories": {
+      "title": "Nuestros {count} mejores recuerdos"
+    },
+    "music": {
+      "pauseLabel": "Pausar música",
+      "playLabel": "Reproducir música"
+    },
+    "promises": {
+      "title": "Mis {count} promesas"
+    },
+    "quiz": {
+      "perfectScore": "¡Puntuación perfecta! Me conoces de memoria 💕",
+      "goodScore": "¡Nada mal! Me conoces bien 😘",
+      "poorScore": "Parece que necesitas conocerme mejor 😏"
+    },
+    "quizPrizes": {
+      "title": "¿Me conoces?",
+      "scratchHint": "¡Rasca para descubrir tu premio! 🎁",
+      "prizeReveal": "🎉 Tu premio:",
+      "rewardLabel": "Tu recompensa:",
+      "prizeHint": "¡Un premio te espera según tu puntuación!"
+    },
+    "rdvClues": {
+      "title": "Pistas ({revealed}/{total})",
+      "revealButton": "Revelar pista #{number}",
+      "allRevealed": "¡Todas las pistas reveladas! Te toca 😏"
+    },
+    "rdvDetails": {
+      "title": "Cita",
+      "date": "Fecha",
+      "time": "Hora",
+      "location": "Lugar",
+      "theme": "Tema"
+    },
+    "reasons": {
+      "title": "{count} razones por las que te amo"
+    },
+    "scratch": {
+      "hintText": "Rasca aquí ✨",
+      "title": "Rasca para descubrir"
+    },
+    "sorry": {
+      "milestone5": "🐶 MODO CACHORRO ABANDONADO ACTIVADO — *te mira con ojos grandes y tristes*",
+      "milestone10": "🚨 ALERTA NARANJA: DESESPERACIÓN CRÍTICA — ¡Los servidores del perdón se están sobrecalentando!",
+      "milestone15": "🔴 CÓDIGO ROJO: SÚPLICA MÁXIMA — Este programa ahora consume el 100% de mi corazón.",
+      "milestoneLegendary": "🏆 LEGENDARIO — ¡{count} intentos! Hasta Chuck Norris habría perdonado a estas alturas.",
+      "celebration1": "🎉 ¡¡¡SOY LA PERSONA MÁS FELIZ DEL MUNDO!!!",
+      "celebration2": "🌟 Eres la mejor persona del universo. Oficial.",
+      "celebration3": "💛 ¡Sabía que tenías un corazón de oro!",
+      "celebration4": "💃 ¡¡¡YUJUUUU!!! *baile de la alegría*",
+      "celebration5": "🤞 ¡Prometo no volver a hacerlo! (probablemente)",
+      "thanks": "¡¡¡GRACIAS!!!",
+      "attempt": "Intento #{number}",
+      "attempts": "Intentos: {count}",
+      "status": "Estado: Perdonado/a ✅",
+      "happiness": "Felicidad: 💯",
+      "despair": "Desesperación",
+      "supplication": "Súplica",
+      "tears": "Lágrimas",
+      "credibility": "Credibilidad",
+      "noButton": "No 😤",
+      "yesButton": "Sí, te perdono 💕"
+    }
+  }
+}

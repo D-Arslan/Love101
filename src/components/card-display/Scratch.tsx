@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect, useCallback } from "react"
 import { motion } from "framer-motion"
 import { Sparkles } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface ScratchProps {
   revealText: string
@@ -10,6 +11,7 @@ interface ScratchProps {
 }
 
 export function Scratch({ revealText, primaryColor }: ScratchProps) {
+  const t = useTranslations("cardDisplay.scratch")
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const [isRevealed, setIsRevealed] = useState(false)
   const [isDrawing, setIsDrawing] = useState(false)
@@ -51,7 +53,7 @@ export function Scratch({ revealText, primaryColor }: ScratchProps) {
     ctx.fillStyle = "rgba(255,255,255,0.3)"
     ctx.font = "14px sans-serif"
     ctx.textAlign = "center"
-    ctx.fillText("Gratte ici ✨", canvas.width / 2, canvas.height / 2)
+    ctx.fillText(t("hintText"), canvas.width / 2, canvas.height / 2)
   }, [primaryColor])
 
   function getPos(e: React.MouseEvent | React.TouchEvent): { x: number; y: number } | null {
@@ -108,7 +110,7 @@ export function Scratch({ revealText, primaryColor }: ScratchProps) {
     >
       <div className="flex items-center justify-center gap-2 mb-4">
         <Sparkles className="h-4 w-4" style={{ color: primaryColor }} />
-        <span className="text-sm font-medium text-gray-600">Gratte pour découvrir</span>
+        <span className="text-sm font-medium text-gray-600">{t("title")}</span>
       </div>
 
       <div

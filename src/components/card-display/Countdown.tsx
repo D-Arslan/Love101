@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Clock } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface CountdownProps {
   targetDate: string
@@ -50,6 +51,7 @@ function TimeUnit({ value, label, color }: { value: number; label: string; color
 }
 
 export function Countdown({ targetDate, primaryColor, secondaryColor }: CountdownProps) {
+  const t = useTranslations("cardDisplay.countdown")
   const [timeLeft, setTimeLeft] = useState<TimeLeft & { isPast: boolean }>(() =>
     calculateTimeLeft(new Date(targetDate))
   )
@@ -71,18 +73,18 @@ export function Countdown({ targetDate, primaryColor, secondaryColor }: Countdow
       <div className="flex items-center justify-center gap-2 mb-4">
         <Clock className="h-4 w-4" style={{ color: primaryColor }} />
         <span className="text-sm font-medium text-gray-600">
-          {timeLeft.isPast ? "Depuis" : "Dans"}
+          {timeLeft.isPast ? t("since") : t("in")}
         </span>
       </div>
 
       <div className="flex items-center justify-center gap-3">
-        <TimeUnit value={timeLeft.days} label="jours" color={primaryColor} />
+        <TimeUnit value={timeLeft.days} label={t("days")} color={primaryColor} />
         <span className="text-xl font-bold text-gray-300 mt-[-20px]">:</span>
-        <TimeUnit value={timeLeft.hours} label="heures" color={secondaryColor} />
+        <TimeUnit value={timeLeft.hours} label={t("hours")} color={secondaryColor} />
         <span className="text-xl font-bold text-gray-300 mt-[-20px]">:</span>
-        <TimeUnit value={timeLeft.minutes} label="min" color={primaryColor} />
+        <TimeUnit value={timeLeft.minutes} label={t("minutes")} color={primaryColor} />
         <span className="text-xl font-bold text-gray-300 mt-[-20px]">:</span>
-        <TimeUnit value={timeLeft.seconds} label="sec" color={secondaryColor} />
+        <TimeUnit value={timeLeft.seconds} label={t("seconds")} color={secondaryColor} />
       </div>
     </motion.div>
   )

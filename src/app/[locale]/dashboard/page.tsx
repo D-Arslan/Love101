@@ -28,29 +28,12 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
 
   const admin = createAdminClient()
 
+  // Single query: fetch cards with view counts in one round-trip
   const { data: cards } = await admin
     .from("cards")
-    .select("id, template_type, recipient_name, sender_name, created_at, is_published")
+    .select("id, template_type, recipient_name, sender_name, created_at, is_published, card_views(count)")
     .eq("user_id", user!.id)
     .order("created_at", { ascending: false })
-
-  const cardIds = (cards ?? []).map((c: { id: string }) => c.id)
-  let viewCounts: Record<string, number> = {}
-
-  if (cardIds.length > 0) {
-    const { data: views } = await admin
-      .from("card_views")
-      .select("card_id")
-      .in("card_id", cardIds)
-
-    viewCounts = (views ?? []).reduce(
-      (acc: Record<string, number>, v: { card_id: string }) => {
-        acc[v.card_id] = (acc[v.card_id] || 0) + 1
-        return acc
-      },
-      {} as Record<string, number>
-    )
-  }
 
   const cardsWithViews = (cards ?? []).map(
     (card: {
@@ -60,9 +43,15 @@ export default async function DashboardPage({ params }: DashboardPageProps) {
       sender_name: string
       created_at: string
       is_published: boolean
+      card_views: { count: number }[]
     }) => ({
-      ...card,
-      view_count: viewCounts[card.id] || 0,
+      id: card.id,
+      template_type: card.template_type,
+      recipient_name: card.recipient_name,
+      sender_name: card.sender_name,
+      created_at: card.created_at,
+      is_published: card.is_published,
+      view_count: card.card_views[0]?.count ?? 0,
     })
   )
 

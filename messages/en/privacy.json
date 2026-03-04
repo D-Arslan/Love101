@@ -1,0 +1,40 @@
+{
+  "privacy": {
+    "title": "Privacy",
+    "titleHighlight": "Policy",
+    "lastUpdated": "Last updated: March 4, 2026",
+    "intro": "At Love101, we take the protection of your personal data very seriously. This policy explains how we collect, use, and protect your information.",
+    "sections": {
+      "dataCollected": {
+        "title": "Data Collected",
+        "text": "We only collect data necessary for the service: your email address upon registration, the content of cards you create (names, messages, configurations), and anonymized usage data (IP addresses hashed with SHA-256 for view tracking)."
+      },
+      "dataUsage": {
+        "title": "Data Usage",
+        "text": "Your data is used exclusively to provide the Love101 service: creating and sharing personalized cards, managing your account, and improving the user experience. We never sell your data to third parties."
+      },
+      "dataSecurity": {
+        "title": "Data Security",
+        "text": "We use robust security measures: encryption in transit (HTTPS), Row Level Security (RLS) on all database tables, input validation with Zod, and IP address hashing. Your passwords are securely managed by Supabase Auth."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "text": "We use only strictly necessary cookies for site functionality (authentication, language preferences). We do not use advertising cookies or third-party trackers."
+      },
+      "rights": {
+        "title": "Your Rights",
+        "text": "You have the right to access, rectify, or delete your data. You can delete your account and all your cards from your dashboard at any time. For any requests, contact us through our contact page."
+      },
+      "retention": {
+        "title": "Data Retention",
+        "text": "Your data is retained as long as your account is active. Published cards remain accessible via their share link. If you delete your account, all associated data will be removed within 30 days."
+      }
+    }
+  },
+  "metadata": {
+    "privacy": {
+      "title": "Privacy Policy — Love101",
+      "description": "Learn how Love101 protects your personal data."
+    }
+  }
+}

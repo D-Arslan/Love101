@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion"
 import { MapPin, Calendar, Clock, Palette } from "lucide-react"
+import { useTranslations, useLocale } from "next-intl"
 import type { RdvDetails as RdvDetailsType } from "@/lib/types/database"
 
 interface RdvDetailsProps {
@@ -9,10 +10,12 @@ interface RdvDetailsProps {
   primaryColor: string
 }
 
-function formatDate(dateStr: string): string {
+const LOCALE_MAP: Record<string, string> = { fr: "fr-FR", en: "en-US", es: "es-ES" }
+
+function formatDate(dateStr: string, locale: string): string {
   try {
     const date = new Date(dateStr)
-    return date.toLocaleDateString("fr-FR", {
+    return date.toLocaleDateString(LOCALE_MAP[locale] || locale, {
       weekday: "long",
       day: "numeric",
       month: "long",
@@ -23,19 +26,18 @@ function formatDate(dateStr: string): string {
   }
 }
 
-function formatTime(timeStr: string): string {
-  return timeStr
-}
-
 export function RdvDetails({ rdv, primaryColor }: RdvDetailsProps) {
+  const t = useTranslations("cardDisplay.rdvDetails")
+  const locale = useLocale()
+
   const items = [
-    { icon: Calendar, label: "Date", value: formatDate(rdv.date) },
-    { icon: Clock, label: "Heure", value: formatTime(rdv.time) },
-    { icon: MapPin, label: "Lieu", value: rdv.location },
+    { icon: Calendar, label: t("date"), value: formatDate(rdv.date, locale) },
+    { icon: Clock, label: t("time"), value: rdv.time },
+    { icon: MapPin, label: t("location"), value: rdv.location },
   ]
 
   if (rdv.theme) {
-    items.push({ icon: Palette, label: "Theme", value: rdv.theme })
+    items.push({ icon: Palette, label: t("theme"), value: rdv.theme })
   }
 
   return (
@@ -48,7 +50,7 @@ export function RdvDetails({ rdv, primaryColor }: RdvDetailsProps) {
       <div className="flex items-center justify-center gap-2 mb-5">
         <MapPin className="h-4 w-4" style={{ color: primaryColor }} />
         <span className="text-sm font-medium text-gray-600">
-          Rendez-vous
+          {t("title")}
         </span>
       </div>
 

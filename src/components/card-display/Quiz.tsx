@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { HelpCircle, CheckCircle2, XCircle, Trophy } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface QuizQuestionData {
   question: string
@@ -16,6 +17,7 @@ interface QuizProps {
 }
 
 export function Quiz({ questions, primaryColor }: QuizProps) {
+  const t = useTranslations("cardDisplay.quiz")
   const [currentIndex, setCurrentIndex] = useState(0)
   const [score, setScore] = useState(0)
   const [selected, setSelected] = useState<string | null>(null)
@@ -64,10 +66,10 @@ export function Quiz({ questions, primaryColor }: QuizProps) {
         </p>
         <p className="text-sm text-gray-500">
           {score === questions.length
-            ? "Score parfait ! Tu me connais par cœur 💕"
+            ? t("perfectScore")
             : score >= questions.length / 2
-              ? "Pas mal ! Tu me connais bien 😘"
-              : "On dirait qu'il faut mieux me connaître 😏"}
+              ? t("goodScore")
+              : t("poorScore")}
         </p>
       </motion.div>
     )

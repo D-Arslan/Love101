@@ -1,0 +1,82 @@
+{
+  "cardDisplay": {
+    "card": {
+      "forRecipient": "For {name}"
+    },
+    "countdown": {
+      "since": "Since",
+      "in": "In",
+      "days": "days",
+      "hours": "hours",
+      "minutes": "min",
+      "seconds": "sec"
+    },
+    "envelope": {
+      "forRecipient": "For {name}",
+      "tapToOpen": "Tap to open"
+    },
+    "memories": {
+      "title": "Our {count} best memories"
+    },
+    "music": {
+      "pauseLabel": "Pause music",
+      "playLabel": "Play music"
+    },
+    "promises": {
+      "title": "My {count} promises"
+    },
+    "quiz": {
+      "perfectScore": "Perfect score! You know me by heart 💕",
+      "goodScore": "Not bad! You know me well 😘",
+      "poorScore": "Looks like you need to know me better 😏"
+    },
+    "quizPrizes": {
+      "title": "Do you know me?",
+      "scratchHint": "Scratch to discover your prize! 🎁",
+      "prizeReveal": "🎉 Your prize:",
+      "rewardLabel": "Your reward:",
+      "prizeHint": "A prize awaits based on your score!"
+    },
+    "rdvClues": {
+      "title": "Clues ({revealed}/{total})",
+      "revealButton": "Reveal clue #{number}",
+      "allRevealed": "All clues revealed! Your turn now 😏"
+    },
+    "rdvDetails": {
+      "title": "Rendez-vous",
+      "date": "Date",
+      "time": "Time",
+      "location": "Location",
+      "theme": "Theme"
+    },
+    "reasons": {
+      "title": "{count} reasons why I love you"
+    },
+    "scratch": {
+      "hintText": "Scratch here ✨",
+      "title": "Scratch to discover"
+    },
+    "sorry": {
+      "milestone5": "🐶 ABANDONED PUPPY MODE ACTIVATED — *stares at you with big sad eyes*",
+      "milestone10": "🚨 ORANGE ALERT: CRITICAL DESPERATION — The forgiveness servers are overheating!",
+      "milestone15": "🔴 CODE RED: MAXIMUM SUPPLICATION — This program now consumes 100% of my heart.",
+      "milestoneLegendary": "🏆 LEGENDARY — {count} attempts! Even Chuck Norris would have forgiven by now.",
+      "celebration1": "🎉 I AM THE HAPPIEST PERSON IN THE WORLD!!!",
+      "celebration2": "🌟 You are the best person in the universe. Official.",
+      "celebration3": "💛 I knew you had a heart of gold!",
+      "celebration4": "💃 WOOHOOOO! *happy dance*",
+      "celebration5": "🤞 I promise I won't do it again! (probably)",
+      "thanks": "THANK YOU!!!",
+      "attempt": "Attempt #{number}",
+      "attempts": "Attempts: {count}",
+      "status": "Status: Forgiven ✅",
+      "happiness": "Happiness: 💯",
+      "despair": "Despair",
+      "supplication": "Supplication",
+      "tears": "Tears",
+      "credibility": "Credibility",
+      "noButton": "No 😤",
+      "yesButton": "Yes, I forgive you 💕"
+    }
+  }
+}

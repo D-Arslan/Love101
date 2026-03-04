@@ -1,0 +1,40 @@
+{
+  "terms": {
+    "title": "Terms of",
+    "titleHighlight": "Service",
+    "lastUpdated": "Last updated: March 4, 2026",
+    "intro": "By using Love101, you agree to these terms of service. Please read them carefully before using our service.",
+    "sections": {
+      "service": {
+        "title": "The Service",
+        "text": "Love101 is an online platform for creating and sharing personalized love messages. The service is provided as-is, without guarantee of permanent availability. We reserve the right to modify or discontinue the service at any time."
+      },
+      "accounts": {
+        "title": "User Accounts",
+        "text": "You can create an account with your email address or via Google OAuth. You are responsible for the security of your account and all activities that occur under it. Each account is limited to one review on the reviews page."
+      },
+      "content": {
+        "title": "User Content",
+        "text": "You retain ownership of the content you create (messages, names, configurations). By publishing a card, you grant us a limited license to host and display that content via the share link. You must not publish illegal, offensive, or rights-infringing content."
+      },
+      "usage": {
+        "title": "Acceptable Use",
+        "text": "You agree to use Love101 responsibly. Prohibited activities include: sending spam, harassment, using automated bots, any attempt to compromise the security of the service, and any unauthorized commercial use."
+      },
+      "liability": {
+        "title": "Limitation of Liability",
+        "text": "Love101 is provided free of charge and without warranty. We are not liable for any direct or indirect damages resulting from the use of the service. We do not guarantee permanent availability of published cards."
+      },
+      "changes": {
+        "title": "Changes",
+        "text": "We may modify these terms at any time. Changes will take effect upon publication on this page. By continuing to use the service after a modification, you accept the new terms."
+      }
+    }
+  },
+  "metadata": {
+    "terms": {
+      "title": "Terms of Service — Love101",
+      "description": "Terms of service for Love101."
+    }
+  }
+}

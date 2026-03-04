@@ -1,0 +1,40 @@
+{
+  "privacy": {
+    "title": "Politique de",
+    "titleHighlight": "Confidentialité",
+    "lastUpdated": "Dernière mise à jour : 4 mars 2026",
+    "intro": "Chez Love101, nous prenons la protection de vos données personnelles très au sérieux. Cette politique explique comment nous collectons, utilisons et protégeons vos informations.",
+    "sections": {
+      "dataCollected": {
+        "title": "Données collectées",
+        "text": "Nous collectons uniquement les données nécessaires au fonctionnement du service : votre adresse e-mail lors de l'inscription, le contenu des cartes que vous créez (noms, messages, configurations), et des données d'utilisation anonymisées (adresses IP hashées en SHA-256 pour le suivi des vues)."
+      },
+      "dataUsage": {
+        "title": "Utilisation des données",
+        "text": "Vos données sont utilisées exclusivement pour fournir le service Love101 : créer et partager des cartes personnalisées, gérer votre compte, et améliorer l'expérience utilisateur. Nous ne vendons jamais vos données à des tiers."
+      },
+      "dataSecurity": {
+        "title": "Sécurité des données",
+        "text": "Nous utilisons des mesures de sécurité robustes : chiffrement en transit (HTTPS), Row Level Security (RLS) sur toutes les tables de base de données, validation des entrées avec Zod, et hashage des adresses IP. Vos mots de passe sont gérés de manière sécurisée par Supabase Auth."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "text": "Nous utilisons des cookies strictement nécessaires au fonctionnement du site (authentification, préférences de langue). Nous n'utilisons pas de cookies publicitaires ni de trackers tiers."
+      },
+      "rights": {
+        "title": "Vos droits",
+        "text": "Vous avez le droit d'accéder à vos données, de les rectifier ou de les supprimer. Vous pouvez supprimer votre compte et toutes vos cartes depuis votre tableau de bord à tout moment. Pour toute demande, contactez-nous via notre page de contact."
+      },
+      "retention": {
+        "title": "Conservation des données",
+        "text": "Vos données sont conservées tant que votre compte est actif. Les cartes publiées restent accessibles via leur lien de partage. Si vous supprimez votre compte, toutes les données associées seront supprimées dans un délai de 30 jours."
+      }
+    }
+  },
+  "metadata": {
+    "privacy": {
+      "title": "Politique de Confidentialité — Love101",
+      "description": "Découvrez comment Love101 protège vos données personnelles."
+    }
+  }
+}

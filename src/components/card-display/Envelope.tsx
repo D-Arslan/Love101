@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useTranslations } from "next-intl"
 import type { ThemeColors } from "@/lib/types/database"
 
 interface EnvelopeProps {
@@ -12,6 +13,7 @@ interface EnvelopeProps {
 }
 
 export function Envelope({ colors, recipientName, emoji, onOpen }: EnvelopeProps) {
+  const t = useTranslations("cardDisplay.envelope")
   const [isOpening, setIsOpening] = useState(false)
 
   function handleOpen() {
@@ -79,7 +81,7 @@ export function Envelope({ colors, recipientName, emoji, onOpen }: EnvelopeProps
               className="font-serif text-xl sm:text-2xl font-bold mb-2"
               style={{ color: colors.primary }}
             >
-              Pour {recipientName}
+              {t("forRecipient", { name: recipientName })}
             </p>
             <motion.p
               className="text-sm"
@@ -87,7 +89,7 @@ export function Envelope({ colors, recipientName, emoji, onOpen }: EnvelopeProps
               animate={{ opacity: [0.4, 0.8, 0.4] }}
               transition={{ duration: 2, repeat: Infinity }}
             >
-              Appuie pour ouvrir
+              {t("tapToOpen")}
             </motion.p>
           </motion.div>
         </motion.div>

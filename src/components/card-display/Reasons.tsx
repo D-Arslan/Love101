@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Heart } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface ReasonsProps {
   reasons: string[]
@@ -10,6 +11,7 @@ interface ReasonsProps {
 }
 
 export function Reasons({ reasons, primaryColor }: ReasonsProps) {
+  const t = useTranslations("cardDisplay.reasons")
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 
@@ -39,7 +41,7 @@ export function Reasons({ reasons, primaryColor }: ReasonsProps) {
       <div className="flex items-center justify-center gap-2 mb-5">
         <Heart className="h-4 w-4" style={{ color: primaryColor }} fill={primaryColor} />
         <span className="text-sm font-medium text-gray-600">
-          {reasons.length} raisons pour lesquelles je t&apos;aime
+          {t("title", { count: reasons.length })}
         </span>
       </div>
 

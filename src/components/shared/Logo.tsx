@@ -11,6 +11,13 @@ const HEIGHTS: Record<string, number> = {
   xl: 320,
 }
 
+const SIZES: Record<string, string> = {
+  sm: "80px",
+  md: "120px",
+  lg: "180px",
+  xl: "480px",
+}
+
 export function Logo({ size = "sm" }: LogoProps) {
   const h = HEIGHTS[size]
 
@@ -20,7 +27,7 @@ export function Logo({ size = "sm" }: LogoProps) {
       alt="Love101"
       width={0}
       height={0}
-      sizes="300px"
+      sizes={SIZES[size]}
       style={{ height: `${h}px`, width: "auto" }}
       className="mix-blend-multiply"
       priority={size === "xl" || size === "lg"}

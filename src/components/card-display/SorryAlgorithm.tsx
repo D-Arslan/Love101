@@ -2,6 +2,7 @@
 
 import { useState, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
+import { useTranslations } from "next-intl"
 import { DEFAULT_SORRY_MESSAGES, DEFAULT_SORRY_REFUSALS } from "@/lib/sorry-defaults"
 
 interface SorryAlgorithmProps {
@@ -12,20 +13,20 @@ interface SorryAlgorithmProps {
   customRefusals?: string[]
 }
 
-const MILESTONES: Record<number, string> = {
-  5: "🐶 MODE CHIOT ABANDONNE ACTIVE — *te regarde avec des grands yeux tristes*",
-  10: "🚨 ALERTE NIVEAU ORANGE : DESESPOIR CRITIQUE — Les serveurs de pardon sont en surchauffe !",
-  15: "🔴 CODE ROUGE : SUPPLICATION MAXIMALE — Ce programme consomme maintenant 100% de mon coeur.",
+const MILESTONE_KEYS: Record<number, string> = {
+  5: "milestone5",
+  10: "milestone10",
+  15: "milestone15",
 }
 
 const CONFETTI_COLORS = ["#ff6b6b", "#ffa726", "#66bb6a", "#42a5f5", "#ab47bc", "#ffd54f", "#ff7043"]
 
-const CELEBRATION_MESSAGES = [
-  "🎉 JE SUIS LA PERSONNE LA PLUS HEUREUSE DU MONDE !!!",
-  "🌟 Tu es la meilleure personne de l'univers. Officiel.",
-  "💛 Je savais que tu avais un coeur en or !",
-  "💃 YOUHOUUUUU ! *danse de la joie*",
-  "🤞 Promis, je ne recommencerai plus ! (probablement)",
+const CELEBRATION_KEYS = [
+  "celebration1",
+  "celebration2",
+  "celebration3",
+  "celebration4",
+  "celebration5",
 ]
 
 // Deterministic pseudo-random for confetti (avoids hydration issues)
@@ -59,6 +60,7 @@ export function SorryAlgorithm({
   customMessages,
   customRefusals,
 }: SorryAlgorithmProps) {
+  const t = useTranslations("cardDisplay.sorry")
   const messages = useMemo(
     () => (customMessages && customMessages.length > 0 ? customMessages : DEFAULT_SORRY_MESSAGES),
     [customMessages]
@@ -91,16 +93,16 @@ export function SorryAlgorithm({
     setAttempt(nextAttempt)
     setRefusalText(refusals[attempt % refusals.length])
 
-    if (MILESTONES[nextAttempt]) {
-      setMilestone(MILESTONES[nextAttempt])
+    if (MILESTONE_KEYS[nextAttempt]) {
+      setMilestone(t(MILESTONE_KEYS[nextAttempt]))
       setTimeout(() => setMilestone(null), 4000)
     } else if (nextAttempt >= 20 && nextAttempt % 5 === 0) {
-      setMilestone(`🏆 LEGENDAIRE — ${nextAttempt} tentatives ! Meme Chuck Norris aurait pardonne a ce stade.`)
+      setMilestone(t("milestoneLegendary", { count: nextAttempt }))
       setTimeout(() => setMilestone(null), 4000)
     }
 
     setTimeout(() => setRefusalText(null), 2500)
-  }, [attempt, refusals])
+  }, [attempt, refusals, t])
 
   const handleYes = useCallback(() => {
     setForgiven(true)
@@ -109,7 +111,7 @@ export function SorryAlgorithm({
     const interval = setInterval(() => {
       step++
       setCelebrationStep(step)
-      if (step >= CELEBRATION_MESSAGES.length) clearInterval(interval)
+      if (step >= CELEBRATION_KEYS.length) clearInterval(interval)
     }, 600)
   }, [])
 
@@ -160,26 +162,26 @@ export function SorryAlgorithm({
         </motion.div>
 
         <h3 className="font-serif text-2xl font-bold mb-4" style={{ color: primaryColor }}>
-          MERCI !!!
+          {t("thanks")}
         </h3>
 
         <div className="space-y-2 mb-6">
-          {CELEBRATION_MESSAGES.slice(0, celebrationStep + 1).map((msg, i) => (
+          {CELEBRATION_KEYS.slice(0, celebrationStep + 1).map((key, i) => (
             <motion.p
               key={i}
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               className="text-sm text-gray-700"
             >
-              {msg}
+              {t(key)}
             </motion.p>
           ))}
         </div>
 
         <div className="bg-gray-50 rounded-xl p-4 space-y-1 text-xs text-gray-500">
-          <p>Tentatives : {attempt + 1}</p>
-          <p>Statut : Pardonne(e) ✅</p>
-          <p>Bonheur : 💯</p>
+          <p>{t("attempts", { count: attempt + 1 })}</p>
+          <p>{t("status")}</p>
+          <p>{t("happiness")}</p>
         </div>
 
         <p className="mt-4 text-sm font-medium" style={{ color: secondaryColor }}>
@@ -200,16 +202,16 @@ export function SorryAlgorithm({
       <div className="text-center">
         <span className="text-3xl block mb-2">🥺</span>
         <p className="text-xs font-medium text-gray-400">
-          Tentative #{attempt + 1}
+          {t("attempt", { number: attempt + 1 })}
         </p>
       </div>
 
       {/* Stats */}
       <div className="space-y-2">
-        <StatBar label="Desespoir" value={desespoir} color="#ef4444" />
-        <StatBar label="Supplication" value={supplication} color={primaryColor} />
-        <StatBar label="Larmes" value={larmes} color="#3b82f6" />
-        <StatBar label="Credibilite" value={credibilite} color="#22c55e" />
+        <StatBar label={t("despair")} value={desespoir} color="#ef4444" />
+        <StatBar label={t("supplication")} value={supplication} color={primaryColor} />
+        <StatBar label={t("tears")} value={larmes} color="#3b82f6" />
+        <StatBar label={t("credibility")} value={credibilite} color="#22c55e" />
       </div>
 
       {/* Message */}
@@ -269,7 +271,7 @@ export function SorryAlgorithm({
           whileTap={{ scale: noButtonScale * 0.95 }}
           className="px-6 py-2.5 rounded-xl border border-gray-200 text-gray-600 text-sm font-medium hover:bg-gray-50 transition-colors"
         >
-          Non 😤
+          {t("noButton")}
         </motion.button>
 
         <motion.button
@@ -279,7 +281,7 @@ export function SorryAlgorithm({
           className="px-6 py-2.5 rounded-xl text-white text-sm font-medium shadow-lg transition-colors"
           style={{ backgroundColor: primaryColor }}
         >
-          Oui, je pardonne 💕
+          {t("yesButton")}
         </motion.button>
       </div>
     </motion.div>

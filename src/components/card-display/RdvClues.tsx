@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { Search, Eye } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface RdvCluesProps {
   clues: string[]
@@ -11,6 +12,7 @@ interface RdvCluesProps {
 }
 
 export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps) {
+  const t = useTranslations("cardDisplay.rdvClues")
   const [revealedCount, setRevealedCount] = useState(0)
 
   function revealNext() {
@@ -29,7 +31,7 @@ export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps)
       <div className="flex items-center justify-center gap-2 mb-5">
         <Search className="h-4 w-4" style={{ color: primaryColor }} />
         <span className="text-sm font-medium text-gray-600">
-          Indices ({revealedCount}/{clues.length})
+          {t("title", { revealed: revealedCount, total: clues.length })}
         </span>
       </div>
 
@@ -70,7 +72,7 @@ export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps)
           style={{ backgroundColor: primaryColor }}
         >
           <Eye className="h-4 w-4" />
-          Révéler l&apos;indice #{revealedCount + 1}
+          {t("revealButton", { number: revealedCount + 1 })}
         </motion.button>
       )}
 
@@ -81,7 +83,7 @@ export function RdvClues({ clues, primaryColor, secondaryColor }: RdvCluesProps)
           className="text-center text-sm"
           style={{ color: secondaryColor }}
         >
-          Tous les indices sont révélés ! À toi de jouer 😏
+          {t("allRevealed")}
         </motion.p>
       )}
     </motion.div>

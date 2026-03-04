@@ -1,0 +1,40 @@
+{
+  "terms": {
+    "title": "Conditions",
+    "titleHighlight": "d'Utilisation",
+    "lastUpdated": "Dernière mise à jour : 4 mars 2026",
+    "intro": "En utilisant Love101, vous acceptez les présentes conditions d'utilisation. Veuillez les lire attentivement avant d'utiliser notre service.",
+    "sections": {
+      "service": {
+        "title": "Le Service",
+        "text": "Love101 est une plateforme en ligne permettant de créer et partager des messages d'amour personnalisés. Le service est fourni tel quel, sans garantie d'une disponibilité permanente. Nous nous réservons le droit de modifier ou d'interrompre le service à tout moment."
+      },
+      "accounts": {
+        "title": "Comptes utilisateur",
+        "text": "Vous pouvez créer un compte avec votre adresse e-mail ou via Google OAuth. Vous êtes responsable de la sécurité de votre compte et de toutes les activités qui s'y déroulent. Un compte est limité à un avis sur la page des reviews."
+      },
+      "content": {
+        "title": "Contenu utilisateur",
+        "text": "Vous conservez la propriété du contenu que vous créez (messages, noms, configurations). En publiant une carte, vous nous accordez une licence limitée pour héberger et afficher ce contenu via le lien de partage. Vous ne devez pas publier de contenu illégal, offensant ou portant atteinte aux droits d'autrui."
+      },
+      "usage": {
+        "title": "Utilisation acceptable",
+        "text": "Vous vous engagez à utiliser Love101 de manière responsable. Sont interdits : l'envoi de spam, le harcèlement, l'utilisation de bots automatisés, toute tentative de compromettre la sécurité du service, et toute utilisation à des fins commerciales non autorisées."
+      },
+      "liability": {
+        "title": "Limitation de responsabilité",
+        "text": "Love101 est fourni à titre gratuit et sans garantie. Nous ne sommes pas responsables des dommages directs ou indirects résultant de l'utilisation du service. Nous ne garantissons pas la disponibilité permanente des cartes publiées."
+      },
+      "changes": {
+        "title": "Modifications",
+        "text": "Nous pouvons modifier ces conditions à tout moment. Les modifications prendront effet dès leur publication sur cette page. En continuant à utiliser le service après une modification, vous acceptez les nouvelles conditions."
+      }
+    }
+  },
+  "metadata": {
+    "terms": {
+      "title": "Conditions d'Utilisation — Love101",
+      "description": "Conditions d'utilisation du service Love101."
+    }
+  }
+}

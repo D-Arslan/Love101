@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, HandHeart } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface PromisesProps {
   promises: string[]
@@ -10,6 +11,7 @@ interface PromisesProps {
 }
 
 export function Promises({ promises, primaryColor }: PromisesProps) {
+  const t = useTranslations("cardDisplay.promises")
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 
@@ -39,7 +41,7 @@ export function Promises({ promises, primaryColor }: PromisesProps) {
       <div className="flex items-center justify-center gap-2 mb-5">
         <HandHeart className="h-4 w-4" style={{ color: primaryColor }} />
         <span className="text-sm font-medium text-gray-600">
-          Mes {promises.length} promesses
+          {t("title", { count: promises.length })}
         </span>
       </div>
 

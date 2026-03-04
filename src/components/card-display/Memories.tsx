@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight, Star } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface MemoriesProps {
   memories: string[]
@@ -10,6 +11,7 @@ interface MemoriesProps {
 }
 
 export function Memories({ memories, primaryColor }: MemoriesProps) {
+  const t = useTranslations("cardDisplay.memories")
   const [current, setCurrent] = useState(0)
   const [direction, setDirection] = useState(0)
 
@@ -39,7 +41,7 @@ export function Memories({ memories, primaryColor }: MemoriesProps) {
       <div className="flex items-center justify-center gap-2 mb-5">
         <Star className="h-4 w-4" style={{ color: primaryColor }} fill={primaryColor} />
         <span className="text-sm font-medium text-gray-600">
-          Nos {memories.length} meilleurs souvenirs
+          {t("title", { count: memories.length })}
         </span>
       </div>
 

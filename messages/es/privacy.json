@@ -1,0 +1,40 @@
+{
+  "privacy": {
+    "title": "Política de",
+    "titleHighlight": "Privacidad",
+    "lastUpdated": "Última actualización: 4 de marzo de 2026",
+    "intro": "En Love101, nos tomamos muy en serio la protección de tus datos personales. Esta política explica cómo recopilamos, usamos y protegemos tu información.",
+    "sections": {
+      "dataCollected": {
+        "title": "Datos recopilados",
+        "text": "Solo recopilamos los datos necesarios para el servicio: tu dirección de correo electrónico al registrarte, el contenido de las tarjetas que creas (nombres, mensajes, configuraciones) y datos de uso anonimizados (direcciones IP hasheadas con SHA-256 para el seguimiento de vistas)."
+      },
+      "dataUsage": {
+        "title": "Uso de los datos",
+        "text": "Tus datos se utilizan exclusivamente para proporcionar el servicio Love101: crear y compartir tarjetas personalizadas, gestionar tu cuenta y mejorar la experiencia del usuario. Nunca vendemos tus datos a terceros."
+      },
+      "dataSecurity": {
+        "title": "Seguridad de los datos",
+        "text": "Utilizamos medidas de seguridad robustas: cifrado en tránsito (HTTPS), Row Level Security (RLS) en todas las tablas de la base de datos, validación de entradas con Zod y hasheo de direcciones IP. Tus contraseñas son gestionadas de forma segura por Supabase Auth."
+      },
+      "cookies": {
+        "title": "Cookies",
+        "text": "Utilizamos solo cookies estrictamente necesarias para el funcionamiento del sitio (autenticación, preferencias de idioma). No utilizamos cookies publicitarias ni rastreadores de terceros."
+      },
+      "rights": {
+        "title": "Tus derechos",
+        "text": "Tienes derecho a acceder, rectificar o eliminar tus datos. Puedes eliminar tu cuenta y todas tus tarjetas desde tu panel de control en cualquier momento. Para cualquier solicitud, contáctanos a través de nuestra página de contacto."
+      },
+      "retention": {
+        "title": "Conservación de datos",
+        "text": "Tus datos se conservan mientras tu cuenta esté activa. Las tarjetas publicadas permanecen accesibles a través de su enlace de compartir. Si eliminas tu cuenta, todos los datos asociados se eliminarán en un plazo de 30 días."
+      }
+    }
+  },
+  "metadata": {
+    "privacy": {
+      "title": "Política de Privacidad — Love101",
+      "description": "Descubre cómo Love101 protege tus datos personales."
+    }
+  }
+}

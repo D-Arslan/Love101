@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import { Music as MusicIcon, Pause, Play } from "lucide-react"
+import { useTranslations } from "next-intl"
 
 interface MusicProps {
   musicUrl?: string
@@ -10,6 +11,7 @@ interface MusicProps {
 }
 
 export function Music({ musicUrl, primaryColor }: MusicProps) {
+  const t = useTranslations("cardDisplay.music")
   const audioRef = useRef<HTMLAudioElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
   const [hasInteracted, setHasInteracted] = useState(false)
@@ -59,7 +61,7 @@ export function Music({ musicUrl, primaryColor }: MusicProps) {
         transition={{ delay: 1, type: "spring" }}
         className="fixed bottom-5 right-5 z-50 w-12 h-12 rounded-full shadow-lg flex items-center justify-center text-white transition-transform hover:scale-110"
         style={{ backgroundColor: primaryColor }}
-        aria-label={isPlaying ? "Pause musique" : "Jouer musique"}
+        aria-label={isPlaying ? t("pauseLabel") : t("playLabel")}
       >
         {!hasInteracted ? (
           <MusicIcon className="h-5 w-5" />

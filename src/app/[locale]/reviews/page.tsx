@@ -2,13 +2,12 @@ import type { Metadata } from "next"
 import { MessageSquare } from "lucide-react"
 import { setRequestLocale, getTranslations } from "next-intl/server"
 import { createAdminClient } from "@/lib/supabase/admin"
-import { createClient } from "@/lib/supabase/server"
 import { StarDisplay } from "@/components/reviews/StarDisplay"
 import { ReviewForm } from "@/components/reviews/ReviewForm"
 import { ReviewList } from "@/components/reviews/ReviewList"
 import type { Review } from "@/lib/types/review"
 
-export const dynamic = "force-dynamic"
+export const revalidate = 60
 
 interface ReviewsPageProps {
   params: Promise<{ locale: string }>
@@ -28,7 +27,7 @@ export default async function ReviewsPage({ params }: ReviewsPageProps) {
   setRequestLocale(locale)
   const t = await getTranslations("reviews")
 
-  // Fetch approved reviews
+  // Fetch approved reviews (cached via ISR, revalidated every 60s)
   const admin = createAdminClient()
   const { data: reviews } = await admin
     .from("reviews")
@@ -36,22 +35,6 @@ export default async function ReviewsPage({ params }: ReviewsPageProps) {
     .eq("is_approved", true)
     .order("created_at", { ascending: false })
     .limit(50)
-
-  // Check auth & existing review
-  const supabase = await createClient()
-  const {
-    data: { user },
-  } = await supabase.auth.getUser()
-
-  let existingReview: Review | null = null
-  if (user) {
-    const { data } = await admin
-      .from("reviews")
-      .select("*")
-      .eq("user_id", user.id)
-      .single()
-    existingReview = data as Review | null
-  }
 
   const reviewList = (reviews ?? []) as Review[]
   const avgRating =
@@ -87,8 +70,8 @@ export default async function ReviewsPage({ params }: ReviewsPageProps) {
           </div>
         )}
 
-        {/* Review Form */}
-        <ReviewForm isLoggedIn={!!user} existingReview={existingReview} />
+        {/* Review Form (handles its own auth state client-side) */}
+        <ReviewForm />
 
         {/* Review List */}
         {reviewList.length > 0 ? (

@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server"
+import { revalidatePath } from "next/cache"
 import { createClient } from "@/lib/supabase/server"
 import { createAdminClient } from "@/lib/supabase/admin"
 import { createReviewSchema } from "@/lib/validators/review"
@@ -53,6 +54,9 @@ export async function POST(request: Request) {
         { status: 500 }
       )
     }
+
+    // Revalidate reviews pages for all locales
+    revalidatePath("/[locale]/reviews", "page")
 
     return NextResponse.json({ review: data })
   } catch {

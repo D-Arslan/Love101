@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Heart } from "lucide-react"
+import { useTranslations } from "next-intl"
 import { getTemplate } from "@/templates"
 import type { Card } from "@/lib/types/database"
 import { Envelope } from "./Envelope"
@@ -24,6 +25,7 @@ interface CardRendererProps {
 }
 
 export function CardRenderer({ card }: CardRendererProps) {
+  const t = useTranslations("cardDisplay.card")
   const template = getTemplate(card.template_type)
   const colors = card.theme_colors
   const config = card.custom_config || {}
@@ -87,7 +89,7 @@ export function CardRenderer({ card }: CardRendererProps) {
               className="font-serif text-3xl sm:text-4xl font-bold mb-2"
               style={{ color: colors.primary }}
             >
-              Pour {card.recipient_name}
+              {t("forRecipient", { name: card.recipient_name })}
             </motion.h1>
 
             {/* Divider */}
